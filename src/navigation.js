@@ -88,22 +88,22 @@ export const footerData = {
     {
       ariaLabel: 'Facebook',
       icon: 'tabler:brand-facebook',
-      href: 'https://www.facebook.com/Heguruyangoncentre?mibextid=LQQJ4d',
+      href: '#',
     },
     {
       ariaLabel: 'Instagram',
       icon: 'tabler:brand-instagram',
-      href: 'https://www.instagram.com/heguru_education_singapore?igsh=aWkwcXZoMDU3ajBp',
+      href: '#',
     },
     {
       ariaLabel: 'Twitter',
       icon: 'tabler:brand-twitter',
-      href: 'https://www.facebook.com/Heguruyangoncentre?mibextid=LQQJ4d',
+      href: '#',
     },
     {
       ariaLabel: 'Youtube',
       icon: 'tabler:brand-youtube',
-      href: 'https://www.instagram.com/heguru_education_singapore?igsh=aWkwcXZoMDU3ajBp',
+      href: '#',
     },
   ],
   footNote: '2024 Aung Myittar Co., Ltd. All Rights Reserved',
