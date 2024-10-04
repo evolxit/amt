@@ -1,0 +1,49 @@
+---
+import Img from '~/components/common/Img.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Partners',
+  items: [],
+};
+
+const authorized2 = '~/assets/images/authorized4.png';
+const imgArr = [
+  '~/assets/images/authorized4.png',
+  '~/assets/images/authorized4.png',
+  '~/assets/images/authorized4.png',
+  '~/assets/images/authorized4.png',
+  '~/assets/images/authorized4.png',
+  '~/assets/images/authorized4.png',
+  '~/assets/images/authorized4.png',
+  '~/assets/images/authorized4.png',
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText tagline="Our Partners" title="List of Partners" subtitle="" />
+
+  <!-- component -->
+  <div class="w-full px-10 xl:container xl:mx-auto pb-20">
+    <div class="grid grid-cols-4 gap-6">
+      {
+        imgArr.length > 0 ? (
+          imgArr.map((img) => {
+            return (
+              <div class="h-28 xl:max-w-52 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
+                <Img src={img} alt="" class:list={'object-none h-24'} />
+              </div>
+            );
+          })
+        ) : (
+          <div class="h-28 xl:max-w-52 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
+            <Img src={authorized2} alt="" class:list={'object-none h-24'} />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</Layout>

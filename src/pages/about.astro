@@ -1,0 +1,94 @@
+---
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'About us',
+};
+// const aboutImg = '~/assets/images/about-img.png';
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <div class="lg:w-9/12 mx-auto">
+    <div class="lg:w-9/12 mx-auto">
+      <h3 class="text-center font-bold text-3xl text-black pt-10 uppercase">
+        <span class="text-primary-600">Who</span> We Are
+      </h3>
+      <!-- <p class="text-center text-gray-400 text-sm">Photos of our Activities!</p> -->
+    </div>
+
+    <Hero
+      tagline=""
+      class:list={'pt-0'}
+      image={{
+        src: `{ aboutImg }`,
+        alt: 'Caos Image',
+      }}
+    >
+      <!-- <Fragment slot="title"> About Heguru </Fragment> -->
+
+      <Fragment slot="subtitle">
+        <div class="text-justify text-gray-500">
+          Aung Myittar Co.Ltd is a stationery writing tool manufacturing company. We established our companies in 1992
+          by importing semi-finished products and doing assembly at Myanmar. In 2007, Aung Myittar has started
+          manufacturing pens by importing raw plastic resins and writing fluid ink. Currently, we are the assigned
+          distributor at Myanmar for stationery brands including Zebra Writing Stationery, SDI Office Supplies, Polar
+          Bear Adhesive Tapes and Parker Premium Gift Pens. We are the owner of stationery brands including Noti and
+          Super Reynolds, which are well-known brands for local Burmese. Aung Myittar Co. Ltd is a family owned medium
+          enterprise company that has a distribution office, manufacturing facilities, and an assembly production
+          factory.
+        </div>
+      </Fragment>
+    </Hero>
+
+    <Features3
+      title="Contact Us"
+      subtitle="We’re here to help and answer any question you might have."
+      columns={4}
+      items={[
+        {
+          title: 'Phone',
+          icon: 'tabler:phone',
+          callToAction: {
+            target: '_blank',
+            text: '<span class="font-bold text-sm italic">School</span><br/><span class="text-sm">+959-123-456, 457, 458, <br/>+95-9-1234569</span><br/> <span class="font-bold text-sm italic">Office</span><br/><span class="text-sm">+959-123-456, 457, 458</span>',
+            href: '#',
+            variant: 'link',
+          },
+        },
+        {
+          title: 'Email',
+          icon: 'tabler:mail',
+          callToAction: {
+            target: '_blank',
+            text: '<span class="text-sm">heguru@gmail.com contact@heguru.com</span>',
+            href: '#',
+            variant: 'link',
+          },
+        },
+        {
+          title: 'Fax',
+          icon: 'tabler:printer',
+          callToAction: {
+            target: '_blank',
+            text: '<span class="font-bold text-sm italic">School</span><br/><span class="text-sm">+959-123-456, 457, 458, <br/>+95-9-1234569</span><br/> <span class="font-bold text-sm italic">Office</span><br/><span class="text-sm">+959-123-456, 457, 458</span>',
+            href: '#',
+            variant: 'link',
+          },
+        },
+        {
+          title: 'Address',
+          icon: 'tabler:map',
+          callToAction: {
+            target: '_blank',
+            text: '<span class="text-sm font-bold italic">School</span><br/><span class="text-sm">No. 100, Main Road, Yangon, Myanmar</span><br/><span class="text-sm font-bold italic">Japan Office</span><br/><span class="text-sm">No.6, Township, City</span>',
+            href: '#',
+            variant: 'link',
+          },
+        },
+      ]}
+    />
+  </div>
+</Layout>
