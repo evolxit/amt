@@ -1,4 +1,5 @@
 ---
+import FloatIcon from '~/components/common/FloatIcon.astro';
 import FloatImg from '~/components/common/FloatImg.astro';
 import Logo from '~/components/Logo.astro';
 
@@ -23,6 +24,9 @@ export interface Props {
 }
 
 const topShape = '~/assets/images/section-top-shape.png';
+const facebook = '~/assets/images/social/facebook.png';
+const twitter = '~/assets/images/social/twitter.png';
+const instagram = '~/assets/images/social/instagram.png';
 
 const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
 ---
@@ -32,10 +36,10 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
   <div
     class="dark:bg-dark absolute inset-0 pointer-events-none"
     aria-hidden="true"
-    style="background-color: #00225D!important;"
+    style="background-color: #eee!important;"
   >
   </div>
-  <div class="relative max-w-7xl mx-auto px-10 sm:px-6 dark:text-slate-300">
+  <div class="relative max-w-7xl mx-auto px-10 sm:px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 gap-y-8 sm:gap-8 py-8 md:pt-12">
       <div class="">
         <div class="w-1/4">
@@ -44,7 +48,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         <!-- <div class="mb-2 mt-5">
           <a class="inline-block font-bold text-xl" href={getHomePermalink()}>{SITE?.name}</a>
         </div> -->
-        <div class="text-sm text-muted flex gap-1 mt-10">
+        <div class="text-sm flex gap-1 mt-10">
           <p>
             Aung Myittar Co.Ltd is a stationery writing tool manufacturing company. We established our companies in 1992
             by importing semi-finished products and doing assembly at Myanmar. We are the owner of stationery brands
@@ -73,43 +77,45 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
 
           <span class="text-sm pl-3 inline-block"> No. 45, Tha Mein Bayan Rd., Tamwe Township, Yangon, Myanmar. </span>
         </div>
-        <div class="my-7 flex">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="w-4 h-4"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-            ></path>
-          </svg>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+          <div class="flex">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+              ></path>
+            </svg>
 
-          <span class="text-sm pl-3 inline-block">Yangon Office : +959429971353, +959770303273, 01-554914 </span>
-        </div>
-        <div class="my-7 flex">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="w-4 h-4"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-            ></path>
-          </svg>
+            <div class="text-sm pl-3">Yangon Office: <br />+959429971353, <br />+959770303273, <br />01-554914</div>
+          </div>
+          <div class="flex">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+              ></path>
+            </svg>
 
-          <span class="text-sm pl-3 inline-block">Mandalay Office : +959443506236, 02-2832236 </span>
+            <span class="text-sm pl-3 inline-block">Mandalay Office: <br />+959443506236, <br />02-2832236 </span>
+          </div>
         </div>
-        <div class="mt-7 flex">
+        <div class="mt-5 flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -126,6 +132,11 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           </svg>
 
           <span class="text-sm pl-3 inline-block">info@amtstationery.com</span>
+        </div>
+        <div class="mt-5 flex">
+          <FloatIcon src={facebook} alt="" class:list={'mr-3 object-none'} />
+          <FloatIcon src={twitter} alt="" class:list={'mr-3 object-none'} />
+          <FloatIcon src={instagram} alt="" class:list={'mr-3 object-none'} />
         </div>
       </div>
 
@@ -153,7 +164,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         ))
       } -->
     </div>
-    <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
+    <div class="md:flex md:items-center md:justify-between py-5 md:py-3">
       <!-- {
         socialLinks?.length ? (
           <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
@@ -191,9 +202,9 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         </div>
       </div> -->
 
-      <div class="text-sm mr-4 dark:text-muted w-full text-center border-t border-t-gray-400 pt-5">
+      <div class="text-sm mr-4 w-full border-t border-t-gray-400 pt-5">
         <!-- <Fragment set:html={footNote} /> -->
-        2024 Aung Myittar Co., Ltd. All Rights Reserved
+        © 2024 Aung Myittar Co., Ltd. All Rights Reserved.
       </div>
     </div>
   </div>

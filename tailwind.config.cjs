@@ -19,15 +19,15 @@ module.exports = {
         // },
 
         primary: {
-          100: '#fff9cc',
-          200: '#fff399',
-          300: '#ffee66',
-          400: '#ffe833',
-          500: '#feee27', // Yellow Base Color
-          600: '#e5d520',
-          700: '#ccbc1a',
-          800: '#b3a313',
-          900: '#80750d',
+          100: '#fff4cc',
+          200: '#ffe999',
+          300: '#ffdd66',
+          400: '#ffd233',
+          500: '#FFC814', // Base Color
+          600: '#e5b312',
+          700: '#cc9e0f',
+          800: '#b38a0d',
+          900: '#806109',
         },
 
         // primary: {
@@ -53,6 +53,19 @@ module.exports = {
           800: '#303030',
           900: '#212121',
         },
+
+        third: {
+          100: '#CCD7F0',
+          200: '#99AEE1',
+          300: '#6685D2',
+          400: '#335BC3',
+          500: '#0032B4',
+          600: '#002D9E',
+          700: '#002788',
+          800: '#002172',
+          900: '#00225D', // Base Color
+        },
+
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',

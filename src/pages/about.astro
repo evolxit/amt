@@ -1,92 +1,294 @@
 ---
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import Img from '~/components/common/Img.astro';
+import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'About us',
 };
-// const aboutImg = '~/assets/images/about-img.png';
+
+const aboutImg = '~/assets/images/about-img.png';
+const myanmar = '~/assets/images/mm-home.png';
+const authorized2 = '~/assets/images/authorized4.png';
+const imgArr = [
+  '~/assets/images/noti.png',
+  '~/assets/images/zebra.png',
+  '~/assets/images/joy.png',
+  '~/assets/images/pass.png',
+  '~/assets/images/authorized4.png',
+  '~/assets/images/super.png',
+  '~/assets/images/authorized2.png',
+  '~/assets/images/authorized1.png',
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-  <div class="lg:w-9/12 mx-auto">
-    <div class="lg:w-9/12 mx-auto">
+  <Breadcrumb>
+    Home
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-4 inline"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+    </svg>
+    <span class="text-gray-900">About</span>
+  </Breadcrumb>
+  <div class="xl:w-9/12 mx-auto">
+    <div class="xl:w-9/12 mx-auto">
       <h3 class="text-center font-bold text-3xl text-black pt-10 uppercase">
-        <span class="text-primary-600">Who</span> We Are
+        <span class="text-primary-500">Who</span> We Are
       </h3>
       <!-- <p class="text-center text-gray-400 text-sm">Photos of our Activities!</p> -->
     </div>
 
-    <Hero
-      tagline=""
-      class:list={'pt-0'}
-      image={{
-        src: `{ aboutImg }`,
-        alt: 'Caos Image',
-      }}
-    >
-      <Fragment slot="subtitle">
-        <div class="text-justify text-gray-500">
-          Aung Myittar Co.Ltd is a stationery writing tool manufacturing company. We established our companies in 1992
-          by importing semi-finished products and doing assembly at Myanmar. In 2007, Aung Myittar has started
-          manufacturing pens by importing raw plastic resins and writing fluid ink. Currently, we are the assigned
-          distributor at Myanmar for stationery brands including Zebra Writing Stationery, SDI Office Supplies, Polar
-          Bear Adhesive Tapes and Parker Premium Gift Pens. We are the owner of stationery brands including Noti and
-          Super Reynolds, which are well-known brands for local Burmese. Aung Myittar Co. Ltd is a family owned medium
-          enterprise company that has a distribution office, manufacturing facilities, and an assembly production
-          factory.
-        </div>
-      </Fragment>
-    </Hero>
+    <div class="text-justify text-gray-500 p-10">
+      Aung Myittar Co.Ltd is a stationery writing tool manufacturing company. We established our companies in 1992 by
+      importing semi-finished products and doing assembly at Myanmar. In 2007, Aung Myittar has started manufacturing
+      pens by importing raw plastic resins and writing fluid ink. Currently, we are the assigned distributor at Myanmar
+      for stationery brands including Zebra Writing Stationery, SDI Office Supplies, Polar Bear Adhesive Tapes and
+      Parker Premium Gift Pens. We are the owner of stationery brands including Noti and Super Reynolds, which are
+      well-known brands for local Burmese. Aung Myittar Co. Ltd is a family owned medium enterprise company that has a
+      distribution office, manufacturing facilities, and an assembly production factory.
+    </div>
 
-    <Features3
-      title="Contact Us"
-      subtitle="We’re here to help and answer any question you might have."
-      columns={4}
-      items={[
-        {
-          title: 'Phone',
-          icon: 'tabler:phone',
-          callToAction: {
-            target: '_blank',
-            text: '<span class="font-bold text-sm italic">School</span><br/><span class="text-sm">+959-123-456, 457, 458, <br/>+95-9-1234569</span><br/> <span class="font-bold text-sm italic">Office</span><br/><span class="text-sm">+959-123-456, 457, 458</span>',
-            href: '#',
-            variant: 'link',
-          },
-        },
-        {
-          title: 'Email',
-          icon: 'tabler:mail',
-          callToAction: {
-            target: '_blank',
-            text: '<span class="text-sm">amt@gmail.com contact@amt.com</span>',
-            href: '#',
-            variant: 'link',
-          },
-        },
-        {
-          title: 'Fax',
-          icon: 'tabler:printer',
-          callToAction: {
-            target: '_blank',
-            text: '<span class="font-bold text-sm italic">School</span><br/><span class="text-sm">+959-123-456, 457, 458, <br/>+95-9-1234569</span><br/> <span class="font-bold text-sm italic">Office</span><br/><span class="text-sm">+959-123-456, 457, 458</span>',
-            href: '#',
-            variant: 'link',
-          },
-        },
-        {
-          title: 'Address',
-          icon: 'tabler:map',
-          callToAction: {
-            target: '_blank',
-            text: '<span class="text-sm font-bold italic">School</span><br/><span class="text-sm">No. 100, Main Road, Yangon, Myanmar</span><br/><span class="text-sm font-bold italic">Japan Office</span><br/><span class="text-sm">No.6, Township, City</span>',
-            href: '#',
-            variant: 'link',
-          },
-        },
-      ]}
-    />
+    <div class="px-10">
+      <p class="font-bold mb-5">Our Story</p>
+      <div class="flex">
+        <div class="flex-1 bg-third-900 text-white">
+          <div class="text-3xl font-bold p-10">2006</div>
+          <div class="px-10 mb-10">Invest in others founded</div>
+        </div>
+        <div class="flex-1 pl-10">
+          <div>Invest in others founded</div>
+          <div class="text-gray-400 text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi
+            incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum
+            sit. Debitis!
+          </div>
+        </div>
+      </div>
+
+      <div class="px-10 relative h-52">
+        <ul class="history w-24">
+          <li class="py-16 w-20">2006</li>
+          <li class="py-16 w-20">2006</li>
+          <li class="py-16 w-20">2006</li>
+          <li class="py-16 w-20">2006</li>
+          <li class="py-16 w-20">2006</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- distribution channels -->
+  <div class="w-full bg-primary-200 mt-5 p-10 relative justify-center">
+    <div class="md:flex bg-white">
+      <div class="flex-1 h-full flex content-center w-full px-10 lg:px-0 xl:max-w-md xl:mx-auto md:pl-10">
+        <div class="w-full lg:w-2/3 mx-auto p-10 bg-white rounded">
+          <Img src={myanmar} alt="" class:list={'w-full'} />
+        </div>
+      </div>
+      <div
+        class="flex-1 px-10 py-10 md:pb-0 md:pt-0 bg-white md:px-5 xl:max-w-md flex flex-wrap content-center justify-center md:justify-normal"
+      >
+        <div>
+          <h1 class="text-center font-semibold my-3 text-2xl">Our Distribution Channels</h1>
+          <div class="my-10">
+            <span class="font-bold text-sm">1. Yangon Office :</span><br />
+            <div class="text-sm text-blue-600 pl-3">+959429971353,<br /> +959770303273, <br />01-554914</div>
+          </div>
+          <div class="">
+            <span class="font-bold text-sm">2. Mandalay Office :</span><br />
+            <div class="text-sm text-blue-600 pl-3">+959443506236,<br /> 02-2832236</div>
+          </div>
+          <span class="text-sm inline-block mt-8 font-bold">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-4 h-4 inline"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+            </svg>
+
+            Contact Us</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- our values -->
+  <div class="bg-third-900 p-10 flex flex-col justify-center">
+    <div class="text-center text-white text-3xl font-bold pb-10 shadow-text-light">Our Value</div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-4 justify-between">
+      <div class="bg-white rounded-full h-36 w-36 flex flex-wrap content-center justify-center font-bold">
+        Integrity
+      </div>
+      <div class="bg-white rounded-full h-36 w-36 flex flex-wrap content-center justify-center font-bold">
+        Accountability
+      </div>
+      <div class="bg-white rounded-full h-36 w-36 flex flex-wrap content-center justify-center font-bold">
+        Leadership
+      </div>
+      <div class="bg-white rounded-full h-36 w-36 flex flex-wrap content-center justify-center font-bold">
+        Communication
+      </div>
+      <div class="bg-white rounded-full h-36 w-36 flex flex-wrap content-center justify-center font-bold">
+        Collaboration
+      </div>
+      <div class="bg-white rounded-full h-36 w-36 flex flex-wrap content-center justify-center font-bold">
+        Commitment
+      </div>
+    </div>
+  </div>
+
+  <!-- how we work -->
+  <div class="xl:w-9/12 mx-auto py-10">
+    <div class="md:flex mb-10">
+      <div class="md:w-1/5 text-center md:min-h-32 lg:min-h-24 flex flex-wrap justify-center content-center">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="size-8 inline text-primary-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+            ></path>
+          </svg>
+
+          <div class="text-center font-bold">How We Work</div>
+        </div>
+      </div>
+      <div
+        class="border-0 md:border-l-8 border-primary-500 md:w-4/5 py-5 md:py-0 px-10 text-sm flex flex-wrap justify-center content-center"
+      >
+        Our core strength in delivering customers' satisfactions with high-quality writing tools at an affordable price
+        enabled the company to grow its size and sales revenue. We strive to serve customers better through our
+        well-trained front-line employees. We distribute our company's resources in the order of customers, employees,
+        and shareholders.
+      </div>
+    </div>
+    <div class="md:flex mb-10">
+      <div class="md:w-1/5 text-center md:min-h-32 lg:min-h-24 flex flex-wrap justify-center content-center">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="size-8 inline text-pink-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            ></path>
+          </svg>
+
+          <div class="text-center font-bold">What We Look For</div>
+        </div>
+      </div>
+      <div
+        class="border-0 md:border-l-8 border-pink-500 md:w-4/5 py-5 md:py-0 px-10 text-sm flex flex-wrap justify-center content-center"
+      >
+        We are looking for people who have a passion in the industry of distribution and logistics. Today, we are
+        allocating resources to engage employees considering their long-term career development within our company.
+        Also, we like to hire people who think they are smarter than their boss.
+      </div>
+    </div>
+    <div class="md:flex mb-10">
+      <div class="md:w-1/5 text-center md:min-h-32 lg:min-h-24 flex flex-wrap justify-center content-center">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="size-8 inline text-blue-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002"
+            ></path>
+          </svg>
+
+          <div class="text-center font-bold">What We Offer</div>
+        </div>
+      </div>
+      <div
+        class="border-0 md:border-l-8 border-blue-500 md:w-4/5 py-5 md:py-0 px-10 text-sm flex flex-wrap justify-center content-center"
+      >
+        We are a medium enterprise of family business under Prince Group of Company. The company recognizes teamwork and
+        assignment of split responsibility in order to become a good job company. Family members working in the business
+        takes responsibility of both employees' basic needs and higher needs. We places customer as our most important
+        stakeholder for the business. Employees receive lots of advices related to their responsibility for family
+        members, careers, and spiritual counseling.
+      </div>
+    </div>
+  </div>
+
+  <!-- list of partners -->
+  <div class="w-full px-10 xl:container xl:mx-auto pb-20">
+    <div class="text-center font-bold text-2xl mb-8">List of Partners</div>
+    <div class="grid grid-cols-4 gap-6">
+      {
+        imgArr.length > 0 ? (
+          imgArr.map((img) => {
+            return (
+              <div class="h-28 xl:max-w-52 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
+                <Img src={img} alt="" class:list={'object-none h-24'} />
+              </div>
+            );
+          })
+        ) : (
+          <div class="h-28 xl:max-w-52 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
+            <Img src={authorized2} alt="" class:list={'object-none h-24'} />
+          </div>
+        )
+      }
+    </div>
   </div>
 </Layout>
+
+<style>
+  .history {
+    list-style-type: none;
+    transform: rotate(270deg);
+    position: absolute;
+    bottom: -100%;
+    right: 50%;
+    margin: auto;
+    z-index: 10;
+  }
+
+  .history li {
+    border-left: 3px solid #00225d;
+  }
+
+  .history li::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #00225d; /* Custom color */
+    border-radius: 50%; /* Makes it a circle */
+    margin-right: 10px;
+    margin-left: -12px;
+  }
+</style>

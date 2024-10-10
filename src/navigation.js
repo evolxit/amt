@@ -12,7 +12,7 @@ export const headerData = {
       links: [
         {
           text: 'All Products',
-          href: '#',
+          href: getPermalink('products'),
         },
         {
           text: 'Correction & Adhesion',

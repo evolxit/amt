@@ -108,3 +108,15 @@
 .dd *:first-child {
   margin-top: 0;
 }
+
+.shadow-box {
+  box-shadow: 1px 1px 5px 2px #ddd;
+}
+
+.shadow-box-light {
+  box-shadow: 1px 1px 5px 2px #fdff89;
+}
+
+.shadow-text-light {
+  text-shadow: 2px 2px 5px rgb(255, 248, 215);
+}
