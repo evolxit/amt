@@ -23,6 +23,7 @@ const responseBrd = await fetch(brandUrl, {
 const brandResponse = await responseBrd.json();
 const brands = brandResponse.list;
 
+console.log('brands api', responseBrd);
 console.log('brands', brands);
 
 // Category
@@ -36,6 +37,9 @@ const responseCat = await fetch(categoryUrl, {
 });
 const catData = await responseCat.json();
 const cat = catData.list;
+
+console.log('category api', responseCat);
+console.log('category api json', catData);
 ---
 
 <Layout metadata={metadata}>

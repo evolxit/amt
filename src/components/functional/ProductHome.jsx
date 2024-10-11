@@ -4,11 +4,14 @@ import CategoryFilter from './CategoryFilter';
 import ShowResult from './ShowResult';
 
 const ProductHome = ({ categories, brands }) => {
+  console.log('categories', categories);
+  console.log('brands', brands);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [result, setResult] = useState([]);
 
-  console.log('outer brands', selectedBrands);
+  console.log('selected category', selectedCategory);
+  console.log('selected brands', selectedBrands);
 
   const handleCategoryChange = (value) => {
     setSelectedCategory(value);
