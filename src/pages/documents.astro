@@ -1,0 +1,162 @@
+---
+import Img from '~/components/common/Img.astro';
+import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Documents',
+};
+const catalog = '~/assets/images/catalog.png';
+---
+
+<Layout metadata={metadata}>
+  <Breadcrumb>
+    Home
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-4 inline"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+    </svg>
+    <span class="text-gray-900">Documents</span>
+  </Breadcrumb>
+
+  <div class="w-full px-10 relative" id="popular">
+    <div class="xl:w-10/12 mx-auto">
+      <div class="mx-auto my-7">
+        <h3 class="font-bold text-3xl text-black">Documents</h3>
+      </div>
+      <div x-data="{ openTab: 1 }" class="pb-10">
+        <div class="w-full">
+          <div class="mb-4 flex space-x-4 p-2 bg-white shadow-box">
+            <button
+              x-on:click="openTab = 1"
+              :class="{ 'bg-third-900 text-white': openTab === 1 }"
+              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
+              >Correction & Adhesion</button
+            >
+            <button
+              x-on:click="openTab = 2"
+              :class="{ 'bg-third-900 text-white': openTab === 2 }"
+              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
+              >Office Supplies</button
+            >
+            <button
+              x-on:click="openTab = 3"
+              :class="{ 'bg-third-900 text-white': openTab === 3 }"
+              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
+              >Shearing & Cutting</button
+            >
+            <button
+              x-on:click="openTab = 4"
+              :class="{ 'bg-third-900 text-white': openTab === 4 }"
+              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
+              >Stapling & Punching</button
+            >
+          </div>
+
+          <div x-show="openTab === 1" class="transition-all duration-300 bg-white p-4 px-0">
+            <div class="flex">
+              <div class="w-1/4">
+                <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
+              </div>
+              <div class="w-3/4 pl-0 md:pl-10">
+                <h1 class="font-bold">2024 Catalog</h1>
+                <p class="py-5">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
+                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
+                  quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
+                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
+                  quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
+                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
+                  quo?
+                </p>
+                <a
+                  href="#"
+                  class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
+                  >Download</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div x-show="openTab === 2" class="transition-all duration-300 bg-white p-4 px-0">
+            <div class="flex">
+              <div class="w-1/4">
+                <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
+              </div>
+              <div class="w-3/4 pl-0 md:pl-10">
+                <h1 class="font-bold">2024 Catalog for Office Supplies</h1>
+                <p class="py-5">
+                  Reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam
+                  libero quasi aut? Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam
+                  sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi
+                  totam libero quasi aut? Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
+                  nam sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi
+                  totam libero quasi aut? Libero, quo?
+                </p>
+                <a
+                  href="#"
+                  class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
+                  >Download</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div x-show="openTab === 3" class="transition-all duration-300 bg-white p-4 px-0">
+            <div class="flex">
+              <div class="w-1/4">
+                <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
+              </div>
+              <div class="w-3/4 pl-0 md:pl-10">
+                <h1 class="font-bold">2024 Catalog for Shearing</h1>
+                <p class="py-5">
+                  Error nam sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto
+                  modi totam libero quasi aut? Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Error nam sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto
+                  modi totam libero quasi aut? Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Error nam sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto
+                  modi totam libero quasi aut? Libero, quo?
+                </p>
+                <a
+                  href="#"
+                  class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
+                  >Download</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div x-show="openTab === 4" class="transition-all duration-300 bg-white p-4 px-0">
+            <div class="flex">
+              <div class="w-1/4">
+                <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
+              </div>
+              <div class="w-3/4 pl-0 md:pl-10">
+                <h1 class="font-bold">2024 Catalog for Stapling</h1>
+                <p class="py-5">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
+                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
+                  quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
+                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
+                  quo?
+                </p>
+                <a
+                  href="#"
+                  class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
+                  >Download</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    </div>
+  </div>
+</Layout>

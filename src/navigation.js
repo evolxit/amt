@@ -49,7 +49,7 @@ export const headerData = {
 
     {
       text: 'Documents',
-      href: getPermalink('/partners'),
+      href: getPermalink('/documents'),
     },
   ],
   actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
