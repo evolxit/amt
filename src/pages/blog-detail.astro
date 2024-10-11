@@ -1,0 +1,131 @@
+---
+import Img from '~/components/common/Img.astro';
+import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Blog Details',
+};
+
+const blog = '~/assets/images/blog.png';
+const blog1 = '~/assets/images/blog1.png';
+const blog2 = '~/assets/images/blog2.png';
+---
+
+<Layout metadata={metadata}>
+  <Breadcrumb>
+    Home
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-4 inline"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+    </svg>
+    <span class="text-gray-900">Blog Details</span>
+  </Breadcrumb>
+
+  <div class="p-10">
+    <div class="">
+      <div>
+        <Img src={blog2} alt="" class:list={'w-full object-fill'} />
+      </div>
+      <div class="mt-5">
+        <h1 class="font-bold mt-3 md:mt-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+        <span class="text-sm text-gray-400 mb-5 inline-block">Author Name . 18 Jan 2022</span>
+        <p class="mb-5 text-sm text-gray-500">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores magnam sequi nisi explicabo eveniet vero
+          eaque minus, molestiae, deleniti vitae totam cum necessitatibus quia? Saepe labore reiciendis earum ab
+          explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores magnam sequi nisi explicabo
+          eveniet vero eaque minus, molestiae, deleniti vitae totam cum necessitatibus quia? Saepe labore reiciendis
+          earum ab explicabo. explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores magnam
+          sequi nisi explicabo eveniet vero eaque minus, molestiae, deleniti vitae totam cum necessitatibus quia? Saepe
+          labore reiciendis earum ab explicabo. explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Asperiores magnam sequi nisi explicabo eveniet vero eaque minus, molestiae, deleniti vitae totam cum
+          necessitatibus quia? Saepe labore reiciendis earum ab explicabo.
+        </p>
+      </div>
+    </div>
+
+    <div class="">
+      <h1 class="font-bold mb-3">Sub Heading</h1>
+      <p class="text-sm text-gray-500">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, cum consectetur numquam sed in, debitis
+        delectus, similique sint tempore quisquam fugiat. Est minima id impedit repellat porro rerum cum nobis? Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Facere, cum consectetur numquam sed in, debitis delectus,
+        similique sint tempore quisquam fugiat. Est minima id impedit repellat porro rerum cum nobis? Lorem ipsum dolor
+        sit amet consectetur adipisicing elit. Facere, cum consectetur numquam sed in, debitis delectus, similique sint
+        tempore quisquam fugiat. Est minima id impedit repellat porro rerum cum nobis?
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2">
+      <Img src={blog} alt="" class:list={'w-full object-contain pr-5 py-5'} />
+      <Img src={blog1} alt="" class:list={'w-full object-contain pl-5 py-5'} />
+    </div>
+
+    <p class="text-sm text-gray-500">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum suscipit perspiciatis, esse aliquid omnis ea
+      perferendis molestias quam, ut accusamus voluptas eligendi amet aperiam nam animi tenetur voluptate alias
+      excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum suscipit perspiciatis, esse aliquid
+      omnis ea perferendis molestias quam, ut accusamus voluptas eligendi amet aperiam nam animi tenetur voluptate alias
+      excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum suscipit perspiciatis, esse aliquid
+      omnis ea perferendis molestias quam, ut accusamus voluptas eligendi amet aperiam nam animi tenetur voluptate alias
+      excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum suscipit perspiciatis, esse aliquid
+      omnis ea perferendis molestias quam, ut accusamus voluptas eligendi amet aperiam nam animi tenetur voluptate alias
+      excepturi.
+    </p>
+
+    <div class="py-10">
+      <h1 class="font-bold mb-3">Sub Heading</h1>
+      <p class="text-sm text-gray-500">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, cum consectetur numquam sed in, debitis
+        delectus, similique sint tempore quisquam fugiat. Est minima id impedit repellat porro rerum cum nobis? Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Facere, cum consectetur numquam sed in, debitis delectus,
+        similique sint tempore quisquam fugiat. Est minima id impedit repellat porro rerum cum nobis? Lorem ipsum dolor
+        sit amet consectetur adipisicing elit. Facere, cum consectetur numquam sed in, debitis delectus, similique sint
+        tempore quisquam fugiat. Est minima id impedit repellat porro rerum cum nobis?
+      </p>
+    </div>
+
+    <h1 class="text-3xl font-bold mb-8">Suggested Posts</h1>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div>
+        <Img src={blog1} alt="" class:list={'w-full object-contain'} />
+        <div class="mt-3">
+          <a href="/blog-detail" class="font-bold block hover:text-third-600">Lorem ipsum dolor sit</a>
+          <span class="text-sm text-gray-400 mb-5 inline-block">Author Name . 18 Jan 2022</span>
+          <p class="text-sm text-gray-500">
+            Asperiores magnam sequi nisi explicabo eveniet vero eaque minus, molestiae, deleniti vitae totam cum
+            necessitatibus quia?
+          </p>
+        </div>
+      </div>
+      <div>
+        <Img src={blog} alt="" class:list={'w-full object-contain'} />
+        <div class="mt-3">
+          <a href="/blog-detail" class="font-bold block hover:text-third-600">Lorem ipsum dolor sit</a>
+          <span class="text-sm text-gray-400 mb-5 inline-block">Author Name . 18 Jan 2022</span>
+          <p class="text-sm text-gray-500">
+            Asperiores magnam sequi nisi explicabo eveniet vero eaque minus, molestiae, deleniti vitae totam cum
+            necessitatibus quia?
+          </p>
+        </div>
+      </div>
+      <div>
+        <Img src={blog1} alt="" class:list={'w-full object-contain'} />
+        <div class="mt-3">
+          <a href="/blog-detail" class="font-bold block hover:text-third-600">Lorem ipsum dolor sit</a>
+          <span class="text-sm text-gray-400 mb-5 inline-block">Author Name . 18 Jan 2022</span>
+          <p class="text-sm text-gray-500">
+            Asperiores magnam sequi nisi explicabo eveniet vero eaque minus, molestiae, deleniti vitae totam cum
+            necessitatibus quia?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

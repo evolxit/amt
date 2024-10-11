@@ -44,7 +44,7 @@ export const headerData = {
 
     {
       text: 'Blog',
-      href: getPermalink('/contact'),
+      href: getPermalink('/blogs'),
     },
 
     {
