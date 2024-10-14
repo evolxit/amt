@@ -16,6 +16,9 @@ const ProductHome = ({ categories, brands }) => {
   const handleCategoryChange = (value) => {
     setSelectedCategory(value);
     // call api with value direct
+
+    // ApiService.getCategories();
+
     setResult(['apple', 'orange', 'banana', value]);
   };
 

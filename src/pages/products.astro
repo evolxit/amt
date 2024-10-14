@@ -2,44 +2,20 @@
 import ProductHome from '~/components/functional/ProductHome';
 import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
 import Layout from '~/layouts/PageLayout.astro';
-
-const token = import.meta.env.VITE_API_TOKEN;
-const base = import.meta.env.VITE_BACKEND_PATH;
+import ApiService from '~/services/ApiService';
 
 const metadata = {
   title: 'Products',
   items: [],
 };
 
-// Category
-const brandUrl = base + 'api/v1/brands';
-const responseBrd = await fetch(brandUrl, {
-  method: 'GET',
-  headers: {
-    Authorization: 'Bearer ' + token,
-    'Content-Type': 'application/json',
-  },
-});
-const brandResponse = await responseBrd.json();
-const brands = brandResponse.list;
-
-console.log('brands api', responseBrd);
-console.log('brands', brands);
+// Brand
+const brandData = await ApiService.getBrands();
+const brands = brandData.list;
 
 // Category
-const categoryUrl = base + 'api/v1/categories';
-const responseCat = await fetch(categoryUrl, {
-  method: 'GET',
-  headers: {
-    Authorization: 'Bearer ' + token,
-    'Content-Type': 'application/json',
-  },
-});
-const catData = await responseCat.json();
-const cat = catData.list;
-
-console.log('category api', responseCat);
-console.log('category api json', catData);
+const categoryData = await ApiService.getCategories();
+const cat = categoryData.list;
 ---
 
 <Layout metadata={metadata}>

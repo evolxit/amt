@@ -1,11 +1,24 @@
+import Product from '~/components/functional/Product';
+
 const ShowResult = ({ data }) => {
   console.log('show result', data);
+
+  // const defaultImg = '~/assets/images/blog1.png';
+  const defaultImg = '/p1.jpg';
+  const testData = [
+    { name: 'Product 1', code: 'TA603', cover: defaultImg },
+    { name: 'Product 2', code: 'TA603', cover: defaultImg },
+    { name: 'Product 3', code: 'TA603', cover: defaultImg },
+    { name: 'Product 4', code: 'TA603', cover: defaultImg },
+    { name: 'Product 5', code: 'TA603', cover: defaultImg },
+    { name: 'Product 6', code: 'TA603', cover: defaultImg },
+  ];
 
   return (
     <>
       <div className="p-8 text-lg font-bold">Our Collection of Products</div>
 
-      <div className="px-8">
+      <div className="pl-8">
         <form>
           <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">
             Search
@@ -46,15 +59,10 @@ const ShowResult = ({ data }) => {
         <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 p-8">
-        <div className="border border-gray-200 rounded h-40"></div>
-        <div className="border border-gray-200 rounded h-40"></div>
-        <div className="border border-gray-200 rounded h-40"></div>
-        <div className="border border-gray-200 rounded h-40"></div>
-        <div className="border border-gray-200 rounded h-40"></div>
-        <div className="border border-gray-200 rounded h-40"></div>
-        <div className="border border-gray-200 rounded h-40"></div>
-        <div className="border border-gray-200 rounded h-40"></div>
+      <div className="grid grid-cols-4 gap-4 pl-8 pt-8">
+        {testData.length > 0
+          ? testData.map((product, index) => <Product product={product} key={index} />)
+          : 'No Product!'}
       </div>
     </>
   );
