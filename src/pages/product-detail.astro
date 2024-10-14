@@ -1,0 +1,130 @@
+---
+import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Product Details',
+  items: [],
+};
+---
+
+<Layout metadata={metadata}>
+  <Breadcrumb>
+    Home
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-4 inline"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+    </svg>
+    <span class="text-gray-900">Product Details</span>
+  </Breadcrumb>
+
+  <!-- component -->
+  <div class="w-full p-10 xl:container xl:mx-auto">
+    <div>
+      <h1 class="mb-3 font-bold text-xl">Product Name</h1>
+      <iframe
+        style="border-radius: 5px;"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/DaxL4gYwUrU"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        class="w-full mb-5"
+        allowfullscreen
+      >
+      </iframe>
+
+      <div>
+        <h1 class="font-semibold text-lg my-3 underline">Description</h1>
+        <p class="text-sm text-gray-500">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae obcaecati earum molestiae itaque sequi,
+          ad similique. Pariatur quibusdam delectus maxime repudiandae asperiores eligendi amet quae veritatis quasi
+          ullam. Nobis, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae obcaecati earum
+          molestiae itaque sequi, ad similique. Pariatur quibusdam delectus maxime repudiandae asperiores eligendi amet
+          quae veritatis quasi ullam. Nobis, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Repudiandae obcaecati earum molestiae itaque sequi, ad similique. Pariatur quibusdam delectus maxime
+          repudiandae asperiores eligendi amet quae veritatis quasi ullam. Nobis, explicabo.
+        </p>
+      </div>
+
+      <div class="pt-10">
+        <h1 class="font-bold text-xl my-3">
+          Related Products
+          <span class="text-sm font-semibold float-right hover:text-third-500 cursor-pointer">Show More</span>
+        </h1>
+        <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
+          <div class="bg-white shadow-md border border-gray-200 rounded-sm mb-5">
+            <a href="/product-detail">
+              <img class="rounded-t-md img-hover" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
+            </a>
+            <div class="p-3 text-xs bg-white">
+              <h2 class="font-semibold">Correction & Adhesion</h2>
+              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
+                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
+                {
+                  /* <span class="float-end">
+                <FloatIcon src={newIcon} alt="" class:list={'newIcon'} />
+              </span> */
+                }
+              </h5>
+            </div>
+          </div>
+          <div class="bg-white shadow-md border border-gray-200 rounded-sm mb-5">
+            <a href="/product-detail">
+              <img class="rounded-t-md img-hover" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
+            </a>
+            <div class="p-3 text-xs bg-white">
+              <h2 class="font-semibold">Correction & Adhesion</h2>
+              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
+                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
+                {
+                  /* <span class="float-end">
+                <FloatIcon src={newIcon} alt="" class:list={'newIcon'} />
+              </span> */
+                }
+              </h5>
+            </div>
+          </div>
+          <div class="bg-white shadow-md border border-gray-200 rounded-sm mb-5">
+            <a href="/product-detail">
+              <img class="rounded-t-md img-hover" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
+            </a>
+            <div class="p-3 text-xs bg-white">
+              <h2 class="font-semibold">Correction & Adhesion</h2>
+              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
+                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
+                {
+                  /* <span class="float-end">
+                <FloatIcon src={newIcon} alt="" class:list={'newIcon'} />
+              </span> */
+                }
+              </h5>
+            </div>
+          </div>
+          <div class="bg-white shadow-md border border-gray-200 rounded-sm mb-5">
+            <a href="/product-detail">
+              <img class="rounded-t-md img-hover" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
+            </a>
+            <div class="p-3 text-xs bg-white">
+              <h2 class="font-semibold">Correction & Adhesion</h2>
+              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
+                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
+                {
+                  /* <span class="float-end">
+                <FloatIcon src={newIcon} alt="" class:list={'newIcon'} />
+              </span> */
+                }
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

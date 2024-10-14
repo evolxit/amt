@@ -8,7 +8,7 @@ const Product = ({ product }) => {
           {/* <img src={product.cover} alt="" /> */}
           <div className="">
             <div className="bg-white shadow-md border border-gray-200 rounded-sm mb-5 ">
-              <a href="#">
+              <a href="/product-detail">
                 <img className="rounded-t-md img-hover" src={product.cover} alt="" />
               </a>
               <div className="p-3 text-xs bg-white">
