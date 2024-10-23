@@ -30,133 +30,139 @@ const catalog = '~/assets/images/catalog.png';
       <div class="mx-auto my-7">
         <h3 class="font-bold text-3xl text-black">Documents</h3>
       </div>
-      <div x-data="{ openTab: 1 }" class="pb-10">
-        <div class="w-full">
-          <div class="mb-4 flex space-x-4 p-2 bg-white shadow-box">
-            <button
-              x-on:click="openTab = 1"
-              :class="{ 'bg-third-900 text-white': openTab === 1 }"
-              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
-              >Correction & Adhesion</button
-            >
-            <button
-              x-on:click="openTab = 2"
-              :class="{ 'bg-third-900 text-white': openTab === 2 }"
-              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
-              >Office Supplies</button
-            >
-            <button
-              x-on:click="openTab = 3"
-              :class="{ 'bg-third-900 text-white': openTab === 3 }"
-              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
-              >Shearing & Cutting</button
-            >
-            <button
-              x-on:click="openTab = 4"
-              :class="{ 'bg-third-900 text-white': openTab === 4 }"
-              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
-              >Stapling & Punching</button
-            >
-          </div>
 
-          <div x-show="openTab === 1" class="transition-all duration-300 bg-white p-4 px-0">
-            <div class="flex">
-              <div class="w-1/4">
-                <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
-              </div>
-              <div class="w-3/4 pl-0 md:pl-10">
-                <h1 class="font-bold">2024 Catalog</h1>
-                <p class="py-5">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
-                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
-                  quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
-                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
-                  quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
-                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
-                  quo?
-                </p>
-                <a
-                  href="#"
-                  class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
-                  >Download</a
-                >
+      <div class="flex items-center justify-center mb-10">
+        <ul class="grid w-full grid-cols-4 gap-3 min-h-screen md:min-h-96">
+          <li>
+            <input class="peer sr-only" type="radio" value="tab1" name="answer" id="tab1" checked />
+            <label
+              class="flex justify-center cursor-pointer rounded-lg bg-white py-2 px-4 hover:bg-gray-50 focus:outline-none peer-checked:bg-third-900 peer-checked:text-white peer-checked:border-third-900 transition-all duration-300 ease-in-out border border-gray-200"
+              for="tab1">Correction & Adhesion</label
+            >
+
+            <div
+              class="absolute ml-8 xl:ml-[10%] left-0 bg-white py-6 mt-2 transition-all duration-500 ease-in-out translate-x-40 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-x-1 w-[80%] xl:w-[78%]"
+            >
+              <div class="md:flex">
+                <div class="max-w-sm md:w-1/4 xl:max-w-52">
+                  <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
+                </div>
+                <div class="md:w-3/4 pl-0 md:pl-10">
+                  <h1 class="font-bold">2024 Catalog</h1>
+                  <p class="py-5">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
+                    distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut?
+                    Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis
+                    minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi
+                    aut? Libero, quo?
+                  </p>
+                  <a
+                    href="#"
+                    class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
+                    >Download</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
+          </li>
+          <li>
+            <input class="peer sr-only" type="radio" value="tab2" name="answer" id="tab2" />
+            <label
+              class="flex justify-center cursor-pointer rounded-lg bg-white py-2 px-4 hover:bg-gray-50 focus:outline-none peer-checked:bg-third-900 peer-checked:text-white peer-checked:border-third-900 transition-all duration-300 ease-in-out border border-gray-200"
+              for="tab2">Office Supplies</label
+            >
 
-          <div x-show="openTab === 2" class="transition-all duration-300 bg-white p-4 px-0">
-            <div class="flex">
-              <div class="w-1/4">
-                <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
-              </div>
-              <div class="w-3/4 pl-0 md:pl-10">
-                <h1 class="font-bold">2024 Catalog for Office Supplies</h1>
-                <p class="py-5">
-                  Reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam
-                  libero quasi aut? Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam
-                  sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi
-                  totam libero quasi aut? Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
-                  nam sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi
-                  totam libero quasi aut? Libero, quo?
-                </p>
-                <a
-                  href="#"
-                  class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
-                  >Download</a
-                >
+            <div
+              class="absolute ml-8 xl:ml-[10%] left-0 bg-white py-6 mt-2 transition-all duration-500 ease-in-out translate-x-40 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-x-1 w-[80%] xl:w-[78%]"
+            >
+              <div class="md:flex">
+                <div class="max-w-sm md:w-1/4 xl:max-w-52">
+                  <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
+                </div>
+                <div class="md:w-3/4 pl-0 md:pl-10">
+                  <h1 class="font-bold">2024 Catalog</h1>
+                  <p class="py-5">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
+                    distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut?
+                    Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis
+                    minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi
+                    aut? Libero, quo?
+                  </p>
+                  <a
+                    href="#"
+                    class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
+                    >Download</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
+          </li>
+          <li>
+            <input class="peer sr-only" type="radio" value="tab3" name="answer" id="tab3" />
+            <label
+              class="flex justify-center cursor-pointer rounded-lg bg-white py-2 px-4 hover:bg-gray-50 focus:outline-none peer-checked:bg-third-900 peer-checked:text-white peer-checked:border-third-900 transition-all duration-300 ease-in-out border border-gray-200"
+              for="tab3">Shearing & Cutting</label
+            >
 
-          <div x-show="openTab === 3" class="transition-all duration-300 bg-white p-4 px-0">
-            <div class="flex">
-              <div class="w-1/4">
-                <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
-              </div>
-              <div class="w-3/4 pl-0 md:pl-10">
-                <h1 class="font-bold">2024 Catalog for Shearing</h1>
-                <p class="py-5">
-                  Error nam sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto
-                  modi totam libero quasi aut? Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Error nam sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto
-                  modi totam libero quasi aut? Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Error nam sed, reiciendis minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto
-                  modi totam libero quasi aut? Libero, quo?
-                </p>
-                <a
-                  href="#"
-                  class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
-                  >Download</a
-                >
+            <div
+              class="absolute ml-8 xl:ml-[10%] left-0 bg-white py-6 mt-2 transition-all duration-500 ease-in-out translate-x-40 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-x-1 w-[80%] xl:w-[78%]"
+            >
+              <div class="md:flex">
+                <div class="max-w-sm md:w-1/4 xl:max-w-52">
+                  <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
+                </div>
+                <div class="md:w-3/4 pl-0 md:pl-10">
+                  <h1 class="font-bold">2024 Catalog</h1>
+                  <p class="py-5">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
+                    distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut?
+                    Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis
+                    minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi
+                    aut? Libero, quo?
+                  </p>
+                  <a
+                    href="#"
+                    class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
+                    >Download</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
+          </li>
+          <li>
+            <input class="peer sr-only" type="radio" value="tab4" name="answer" id="tab4" />
+            <label
+              class="flex justify-center cursor-pointer rounded-lg bg-white py-2 px-4 hover:bg-gray-50 focus:outline-none peer-checked:bg-third-900 peer-checked:text-white peer-checked:border-third-900 transition-all duration-300 ease-in-out border border-gray-200"
+              for="tab4">Stapling & Punching</label
+            >
 
-          <div x-show="openTab === 4" class="transition-all duration-300 bg-white p-4 px-0">
-            <div class="flex">
-              <div class="w-1/4">
-                <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
-              </div>
-              <div class="w-3/4 pl-0 md:pl-10">
-                <h1 class="font-bold">2024 Catalog for Stapling</h1>
-                <p class="py-5">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
-                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
-                  quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
-                  distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut? Libero,
-                  quo?
-                </p>
-                <a
-                  href="#"
-                  class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
-                  >Download</a
-                >
+            <div
+              class="absolute ml-8 xl:ml-[10%] left-0 bg-white py-6 mt-2 transition-all duration-500 ease-in-out translate-x-40 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible peer-checked:translate-x-1 w-[80%] xl:w-[78%]"
+            >
+              <div class="md:flex">
+                <div class="max-w-sm md:w-1/4 xl:max-w-52">
+                  <Img src={catalog} alt="App Store Image" class:list={'w-full object-contain rounded'} />
+                </div>
+                <div class="md:w-3/4 pl-0 md:pl-10">
+                  <h1 class="font-bold">2024 Catalog</h1>
+                  <p class="py-5">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis minus saepe
+                    distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi aut?
+                    Libero, quo? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nam sed, reiciendis
+                    minus saepe distinctio earum hic amet cupiditate perspiciatis velit id iusto modi totam libero quasi
+                    aut? Libero, quo?
+                  </p>
+                  <a
+                    href="#"
+                    class="px-4 py-3 bg-third-900 text-white hover:bg-third-600 font-bold rounded-md text-sm inline-block"
+                    >Download</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
     </div>
   </div>
 </Layout>
