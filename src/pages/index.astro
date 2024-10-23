@@ -1,6 +1,6 @@
 ---
-import FloatIcon from '~/components/common/FloatIcon.astro';
 import Img from '~/components/common/Img.astro';
+import Product from '~/components/functional/Product';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -15,7 +15,15 @@ const authorized3 = '~/assets/images/authorized3.png';
 const authorized4 = '~/assets/images/authorized4.png';
 const defaultImg = '~/assets/images/defaultImage.png';
 // const myanmar = '~/assets/images/mm-home.png';
-const newIcon = '~/assets/images/newIcon.png';
+// const newIcon = '~/assets/images/newIcon.png';
+
+const cover = '/p1.jpg';
+const testData = [
+  { name: 'Product 1', code: 'TA603', cover: cover },
+  { name: 'Product 2', code: 'TA603', cover: cover },
+  { name: 'Product 3', code: 'TA603', cover: cover },
+  { name: 'Product 4', code: 'TA603', cover: cover },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -45,7 +53,7 @@ const newIcon = '~/assets/images/newIcon.png';
         <h3 class="font-bold text-3xl text-black">Our Categories</h3>
       </div>
       <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10">
-        <div class="relative flex flex-col text-gray-700 bg-gray-50 shadow rounded-sm hover:bg-blue-50">
+        <div class="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50">
           <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
             <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
           </div>
@@ -62,7 +70,7 @@ const newIcon = '~/assets/images/newIcon.png';
             </p>
           </div>
         </div>
-        <div class="relative flex flex-col text-gray-700 bg-gray-50 shadow rounded-sm hover:bg-blue-50">
+        <div class="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50">
           <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
             <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
           </div>
@@ -84,7 +92,7 @@ const newIcon = '~/assets/images/newIcon.png';
             </p>
           </div>
         </div>
-        <div class="relative flex flex-col text-gray-700 bg-gray-50 shadow rounded-sm hover:bg-blue-50">
+        <div class="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50">
           <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
             <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
           </div>
@@ -101,7 +109,7 @@ const newIcon = '~/assets/images/newIcon.png';
             </p>
           </div>
         </div>
-        <div class="relative flex flex-col text-gray-700 bg-gray-50 shadow rounded-sm hover:bg-blue-50">
+        <div class="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50">
           <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
             <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
           </div>
@@ -169,87 +177,7 @@ const newIcon = '~/assets/images/newIcon.png';
         </h3>
       </div>
       <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
-        <div class="">
-          <div
-            class="bg-white shadow-md border border-gray-200 rounded-sm mb-5 pb-10 parent-div relative lg:h-50 xl:h-52"
-          >
-            <a href="#">
-              <img
-                class="rounded-t-sm img-hover"
-                style="transition: transform 0.8s ease;"
-                src="https://flowbite.com/docs/images/blog/image-1.jpg"
-                alt=""
-              />
-            </a>
-            <div class="p-3 absolute bottom-0 text-sm left-0 right-0 z-3 bg-white">
-              <h2 class="font-semibold text-sm">Correction & Adhesion</h2>
-              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
-                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
-                <span class="float-end">
-                  <FloatIcon src={newIcon} alt="" class:list={'newIcon'} />
-                </span>
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="">
-          <div
-            class="bg-white shadow-md border border-gray-200 rounded-sm mb-5 pb-10 parent-div relative lg:h-50 xl:h-52"
-          >
-            <a href="#">
-              <img
-                class="rounded-t-sm img-hover"
-                style="transition: transform 0.8s ease;"
-                src="https://flowbite.com/docs/images/blog/image-1.jpg"
-                alt=""
-              />
-            </a>
-            <div class="p-3 absolute bottom-0 text-sm left-0 right-0 z-3 bg-white">
-              <h2 class="font-semibold text-sm">Correction & Adhesion</h2>
-              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
-                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
-              </h5>
-            </div>
-          </div>
-        </div><div class="">
-          <div
-            class="bg-white shadow-md border border-gray-200 rounded-sm mb-5 pb-10 parent-div relative lg:h-50 xl:h-52"
-          >
-            <a href="#">
-              <img
-                class="rounded-t-sm img-hover"
-                style="transition: transform 0.8s ease;"
-                src="https://flowbite.com/docs/images/blog/image-1.jpg"
-                alt=""
-              />
-            </a>
-            <div class="p-3 absolute bottom-0 text-sm left-0 right-0 z-3 bg-white">
-              <h2 class="font-semibold text-sm">Correction & Adhesion</h2>
-              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
-                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
-              </h5>
-            </div>
-          </div>
-        </div><div class="">
-          <div
-            class="bg-white shadow-md border border-gray-200 rounded-sm mb-5 pb-10 parent-div relative lg:h-50 xl:h-52"
-          >
-            <a href="#">
-              <img
-                class="rounded-t-sm img-hover"
-                style="transition: transform 0.8s ease;"
-                src="https://flowbite.com/docs/images/blog/image-1.jpg"
-                alt=""
-              />
-            </a>
-            <div class="p-3 absolute bottom-0 text-sm left-0 right-0 z-3 bg-white">
-              <h2 class="font-semibold text-sm">Correction & Adhesion</h2>
-              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
-                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
-              </h5>
-            </div>
-          </div>
-        </div>
+        {testData.length > 0 ? testData.map((product) => <Product product={product} />) : 'No Product!'}
       </div>
     </div>
   </div>
