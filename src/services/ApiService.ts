@@ -23,7 +23,7 @@ async function getProducts() {
 
 async function getResult(category, brands) {
   const requestOptions = buildRequest('GET');
-  const url = buildUrl('/v1/brands', { category: category, brands: brands });
+  const url = buildUrl('/v1/search', { category: category, brands: brands });
   const response = await fetch(url, requestOptions);
   return await response.json();
 }

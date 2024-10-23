@@ -1,5 +1,5 @@
 ---
-import ProductHome from '~/components/functional/ProductHome';
+import ProductLayout from '~/components/functional/ProductLayout';
 import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import ApiService from '~/services/ApiService';
@@ -36,6 +36,6 @@ const cat = categoryData.list;
 
   <!-- component -->
   <div class="w-full px-10 xl:container xl:mx-auto pb-20">
-    <ProductHome categories={cat} brands={brands} client:only="react" />
+    <ProductLayout categories={cat} brands={brands} client:only="react" />
   </div>
 </Layout>

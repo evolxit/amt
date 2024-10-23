@@ -1,35 +1,32 @@
 import { useState } from 'react';
+import ApiService from '~/services/ApiService';
 import BrandFilter from './BrandFilter';
 import CategoryFilter from './CategoryFilter';
 import ShowResult from './ShowResult';
 
-const ProductHome = ({ categories, brands }) => {
-  console.log('categories', categories);
-  console.log('brands', brands);
+const ProductLayout = ({ categories, brands }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [result, setResult] = useState([]);
 
-  console.log('selected category', selectedCategory);
-  console.log('selected brands', selectedBrands);
-
-  const handleCategoryChange = (value) => {
+  const handleCategoryChange = async (value) => {
     setSelectedCategory(value);
-    // call api with value direct
-
-    // ApiService.getCategories();
-
-    setResult(['apple', 'orange', 'banana', value]);
+    const { list } = await ApiService.getResult(value, selectedBrands);
+    setResult(list);
   };
 
-  const handleBrandChange = (value, status) => {
+  const handleBrandChange = async (value, status) => {
+    let brands = [];
     if (status) {
-      setSelectedBrands([...selectedBrands, value]);
+      brands = [...selectedBrands, value];
     } else {
-      setSelectedBrands(selectedBrands.filter((id) => id !== value));
+      brands = selectedBrands.filter((id) => id !== value);
     }
 
-    // call api with value direct
+    console.log('brands', brands);
+    setSelectedBrands(brands);
+    const { list } = await ApiService.getResult(selectedCategory, brands);
+    setResult(list);
   };
 
   return (
@@ -51,4 +48,4 @@ const ProductHome = ({ categories, brands }) => {
   );
 };
 
-export default ProductHome;
+export default ProductLayout;
