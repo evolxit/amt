@@ -1,5 +1,5 @@
 ---
-import Img from '~/components/common/Img.astro';
+import Tabs from '~/components/functional/Tabs';
 import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -31,7 +31,9 @@ const catalog = '~/assets/images/catalog.png';
         <h3 class="font-bold text-3xl text-black">Documents</h3>
       </div>
 
-      <div class="flex items-center justify-center mb-10">
+      <Tabs client:load />
+
+      <!-- <div class="flex items-center justify-center mb-10">
         <ul class="grid w-full grid-cols-4 gap-3 min-h-screen md:min-h-96">
           <li>
             <input class="peer sr-only" type="radio" value="tab1" name="answer" id="tab1" checked />
@@ -162,7 +164,7 @@ const catalog = '~/assets/images/catalog.png';
             </div>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </div>
 </Layout>
