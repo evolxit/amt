@@ -6,12 +6,12 @@ const ShowResult = ({ data }) => {
   // const defaultImg = '~/assets/images/blog1.png';
   const defaultImg = '/p1.jpg';
   const testData = [
-    { name: 'Product 1', code: 'TA603', cover: defaultImg },
-    { name: 'Product 2', code: 'TA603', cover: defaultImg },
-    { name: 'Product 3', code: 'TA603', cover: defaultImg },
-    { name: 'Product 4', code: 'TA603', cover: defaultImg },
-    { name: 'Product 5', code: 'TA603', cover: defaultImg },
-    { name: 'Product 6', code: 'TA603', cover: defaultImg },
+    { name: 'Product 1', code: 'TA603', cover: defaultImg, isNew: false },
+    { name: 'Product 2', code: 'TA603', cover: defaultImg, isNew: false },
+    { name: 'Product 3', code: 'TA603', cover: defaultImg, isNew: true },
+    { name: 'Product 4', code: 'TA603', cover: defaultImg, isNew: false },
+    { name: 'Product 5', code: 'TA603', cover: defaultImg, isNew: false },
+    { name: 'Product 6', code: 'TA603', cover: defaultImg, isNew: true },
   ];
 
   return (
