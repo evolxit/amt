@@ -40,157 +40,84 @@ const newIcon = '~/assets/images/newIcon.png';
   </div>
 
   <div class="w-full mt-10 px-10 relative" id="popular">
-    <div class="xl:w-10/12 mx-auto pt-10">
-      <div class="mx-auto mb-5">
-        <h3 class="font-bold text-3xl text-black">Our Categories</h3>
-      </div>
-      <div x-data="{ openTab: 1 }" class="">
-        <div class="w-full">
-          <div class="mb-4 flex space-x-4 p-2 bg-white shadow-box">
-            <button
-              x-on:click="openTab = 1"
-              :class="{ 'bg-third-900 text-white': openTab === 1 }"
-              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
-              >Correction & Adhesion</button
-            >
-            <button
-              x-on:click="openTab = 2"
-              :class="{ 'bg-third-900 text-white': openTab === 2 }"
-              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
-              >Office Supplies</button
-            >
-            <button
-              x-on:click="openTab = 3"
-              :class="{ 'bg-third-900 text-white': openTab === 3 }"
-              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
-              >Shearing & Cutting</button
-            >
-            <button
-              x-on:click="openTab = 4"
-              :class="{ 'bg-third-900 text-white': openTab === 4 }"
-              class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:bg-third-900 hover:text-white"
-              >Stapling & Punching</button
-            >
-          </div>
-
-          <div x-show="openTab === 1" class="transition-all duration-300 bg-white p-4 px-0">
-            <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Correction Pen</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Correction Tape</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Refill</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Earser</h2>
-              </div>
-            </div>
-          </div>
-
-          <div x-show="openTab === 2" class="transition-all duration-300 bg-white p-4 px-0">
-            <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Gun Tracker</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Stapler</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Paper Clips</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Noti Stapler</h2>
-              </div>
-            </div>
-          </div>
-
-          <div x-show="openTab === 3" class="transition-all duration-300 bg-white p-4 px-0">
-            <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Cutter Knife</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Sharpener</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Scissor</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Cutting Mat</h2>
-              </div>
-            </div>
-          </div>
-
-          <div x-show="openTab === 4" class="transition-all duration-300 bg-white p-4 px-0">
-            <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Compass</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">BlinderClip</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Sharpy Pencil Ball</h2>
-              </div>
-              <div class="w-full">
-                <a href="#">
-                  <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-                </a>
-                <h2 class="text-center font-semibold text-sm mt-5">Super Reynolds</h2>
-              </div>
-            </div>
-          </div>
+    <div class="mx-auto mb-5">
+      <h3 class="font-bold text-3xl text-black">Our Categories</h3>
+    </div>
+    <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10">
+      <div class="relative flex flex-col text-gray-700 bg-gray-50 shadow rounded-sm hover:bg-blue-50">
+        <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
+          <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
+        </div>
+        <div class="p-6 pt-3">
+          <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900 mb-2">
+            Correction & Adhesion
+          </p>
+          <p class="font-sans antialiased font-normal leading-normal text-gray-700 opacity-75">
+            <ul class="list-disc px-3 text-xs">
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Correction Pen & Tape</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Eraser & Eraser Refill</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Tape & Tape Dispener</a></li>
+            </ul>
+          </p>
         </div>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+      <div class="relative flex flex-col text-gray-700 bg-gray-50 shadow rounded-sm hover:bg-blue-50">
+        <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
+          <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
+        </div>
+        <div class="p-6 pt-3">
+          <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900 mb-2">
+            Office Supplies
+          </p>
+          <p class="font-sans antialiased font-normal leading-normal text-gray-700 opacity-75">
+            <ul class="list-disc px-3 text-xs">
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Ball Pen</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Clip & Clip Dispenser</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Hardwood Pencil & Mechnical Pencil</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Marker & High lighter</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Ruler & Compasses</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Advertising Ball Pen</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Gel ink pens & Premium</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">BEIFA - Wax Crayons</a></li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="relative flex flex-col text-gray-700 bg-gray-50 shadow rounded-sm hover:bg-blue-50">
+        <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
+          <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
+        </div>
+        <div class="p-6 pt-3">
+          <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900 mb-2">
+            Shearing & Cutting
+          </p>
+          <p class="font-sans antialiased font-normal leading-normal text-gray-700 opacity-75">
+            <ul class="list-disc px-3 text-xs">
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Correction Pen & Tape</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Eraser & Eraser Refill</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Tape & Tape Dispener</a></li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="relative flex flex-col text-gray-700 bg-gray-50 shadow rounded-sm hover:bg-blue-50">
+        <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
+          <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
+        </div>
+        <div class="p-6 pt-3">
+          <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900 mb-2">
+            Stapling & Punching
+          </p>
+          <p class="font-sans antialiased font-normal leading-normal text-gray-700 opacity-75">
+            <ul class="list-disc px-3 text-xs">
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Correction Pen & Tape</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Eraser & Eraser Refill</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Tape & Tape Dispener</a></li>
+              <li class="py-1"><a href="#" class="hover:text-blue-500">Tape & Tape Dispener</a></li>
+            </ul>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -476,7 +403,6 @@ const newIcon = '~/assets/images/newIcon.png';
     .logo-box {
       /*box-shadow: 1px 1px 5px 2px #ddd;*/
     }
-    
 
     .newIcon {
       width: 50px !important;
