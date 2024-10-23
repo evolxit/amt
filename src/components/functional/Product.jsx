@@ -14,8 +14,8 @@ const Product = ({ product }) => {
               <a href="/product-detail" className="relative">
                 <img className="rounded-t-sm img-hover" src={product.cover} alt="" />
                 {product.isNew ? (
-                  <span className="absolute bottom-2 left-2">
-                    <img src={newIcon.src} alt="" className="object-fit w-12 -mt-5" />
+                  <span className="absolute top-0 left-0">
+                    <img src={newIcon.src} alt="" className="object-fit w-12 rounded-t-sm" />
                   </span>
                 ) : (
                   ''
