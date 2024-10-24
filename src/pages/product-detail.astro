@@ -1,4 +1,5 @@
 ---
+import Product from '~/components/functional/Product';
 import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -6,6 +7,13 @@ const metadata = {
   title: 'Product Details',
   items: [],
 };
+const defaultImg = '/p1.jpg';
+const testData = [
+  { name: 'Product 2', sku: 'TA603', cover: defaultImg, isNew: false },
+  { name: 'Product 3', sku: 'TA603', cover: defaultImg, isNew: true },
+  { name: 'Product 4', sku: 'TA603', cover: defaultImg, isNew: false },
+  { name: 'Product 6', sku: 'TA603', cover: defaultImg, isNew: true },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -59,70 +67,13 @@ const metadata = {
           <span class="text-sm font-semibold float-right hover:text-third-500 cursor-pointer">Show More</span>
         </h1>
         <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
-          <div class="bg-white shadow-md border border-gray-200 rounded-sm mb-5">
-            <a href="/product-detail">
-              <img class="rounded-t-md img-hover" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
-            </a>
-            <div class="p-3 text-xs bg-white">
-              <h2 class="font-semibold">Correction & Adhesion</h2>
-              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
-                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
-                {
-                  /* <span class="float-end">
-                <FloatIcon src={newIcon} alt="" class:list={'newIcon'} />
-              </span> */
-                }
-              </h5>
-            </div>
-          </div>
-          <div class="bg-white shadow-md border border-gray-200 rounded-sm mb-5">
-            <a href="/product-detail">
-              <img class="rounded-t-md img-hover" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
-            </a>
-            <div class="p-3 text-xs bg-white">
-              <h2 class="font-semibold">Correction & Adhesion</h2>
-              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
-                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
-                {
-                  /* <span class="float-end">
-                <FloatIcon src={newIcon} alt="" class:list={'newIcon'} />
-              </span> */
-                }
-              </h5>
-            </div>
-          </div>
-          <div class="bg-white shadow-md border border-gray-200 rounded-sm mb-5">
-            <a href="/product-detail">
-              <img class="rounded-t-md img-hover" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
-            </a>
-            <div class="p-3 text-xs bg-white">
-              <h2 class="font-semibold">Correction & Adhesion</h2>
-              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
-                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
-                {
-                  /* <span class="float-end">
-                <FloatIcon src={newIcon} alt="" class:list={'newIcon'} />
-              </span> */
-                }
-              </h5>
-            </div>
-          </div>
-          <div class="bg-white shadow-md border border-gray-200 rounded-sm mb-5">
-            <a href="/product-detail">
-              <img class="rounded-t-md img-hover" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="" />
-            </a>
-            <div class="p-3 text-xs bg-white">
-              <h2 class="font-semibold">Correction & Adhesion</h2>
-              <h5 class="text-gray-900 font-semibold text-md tracking-tight mt-2">
-                <span class="px-2 py-1 bg-gray-200 rounded-sm text-xs text-gray-700">TA1234</span>
-                {
-                  /* <span class="float-end">
-                <FloatIcon src={newIcon} alt="" class:list={'newIcon'} />
-              </span> */
-                }
-              </h5>
-            </div>
-          </div>
+          {
+            testData.length > 0 ? (
+              testData.map((product) => <Product product={product} />)
+            ) : (
+              <div class="text-gray-400 text-sm">No Product!</div>
+            )
+          }
         </div>
       </div>
     </div>

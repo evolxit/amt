@@ -2,9 +2,22 @@ const CategoryFilter = ({ categories, onValueChange, selectedCategory }) => {
   return (
     <div className="border border-gray-200 p-4">
       <div className="font-bold">Categories</div>
+      {selectedCategory.name !== '' ? (
+        <div className="pt-3">
+          <span
+            onClick={() => onValueChange(null, null, 'filter')}
+            className="px-2 py-1 border border-blue-500 rounded text-xs cursor-pointer hover:bg-red-200"
+          >
+            {selectedCategory.name} x
+          </span>
+        </div>
+      ) : (
+        ''
+      )}
+
       {categories.length > 0 ? (
         categories.map((category) => (
-          <div className="group flex flex-col gap-2 rounded-lg py-3" tabIndex={category.id} key={category.id}>
+          <div className="group flex flex-col gap-2 rounded-lg py-3 mt-2" tabIndex={category.id} key={category.id}>
             <div className="flex cursor-pointer items-center justify-between">
               <span> {category.name} </span>
               <svg
@@ -24,10 +37,10 @@ const CategoryFilter = ({ categories, onValueChange, selectedCategory }) => {
               {category.children.map((child) => (
                 <div key={child.id}>
                   <input
-                    onClick={() => onValueChange(child.id)}
+                    onClick={() => onValueChange(child.id, child.name)}
                     className="peer sr-only"
                     type="radio"
-                    value={selectedCategory}
+                    value={selectedCategory.id}
                     name="answer"
                     id={child.id}
                   />

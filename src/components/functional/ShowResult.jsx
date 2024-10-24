@@ -1,19 +1,6 @@
 import Product from '~/components/functional/Product';
 
 const ShowResult = ({ data }) => {
-  console.log('show result', data);
-
-  // const defaultImg = '~/assets/images/blog1.png';
-  const defaultImg = '/p1.jpg';
-  const testData = [
-    { name: 'Product 1', code: 'TA603', cover: defaultImg, isNew: false },
-    { name: 'Product 2', code: 'TA603', cover: defaultImg, isNew: false },
-    { name: 'Product 3', code: 'TA603', cover: defaultImg, isNew: true },
-    { name: 'Product 4', code: 'TA603', cover: defaultImg, isNew: false },
-    { name: 'Product 5', code: 'TA603', cover: defaultImg, isNew: false },
-    { name: 'Product 6', code: 'TA603', cover: defaultImg, isNew: true },
-  ];
-
   return (
     <>
       <div className="p-8 text-lg font-bold">Our Collection of Products</div>
@@ -58,11 +45,12 @@ const ShowResult = ({ data }) => {
 
         <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
       </div>
-
       <div className="grid grid-cols-4 gap-4 pl-8 pt-8">
-        {testData.length > 0
-          ? testData.map((product, index) => <Product product={product} key={index} />)
-          : 'No Product!'}
+        {data.length > 0 ? (
+          data.map((product, index) => <Product product={product} key={index} />)
+        ) : (
+          <div className="text-gray-400 text-sm">No Product!</div>
+        )}
       </div>
     </>
   );
