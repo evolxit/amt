@@ -1,5 +1,6 @@
 ---
 import Product from '~/components/functional/Product';
+import ProductDetails from '~/components/functional/ProductDetails';
 import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -35,31 +36,7 @@ const testData = [
   <!-- component -->
   <div class="w-full p-10 xl:container xl:mx-auto">
     <div>
-      <h1 class="mb-3 font-bold text-xl">Product Name</h1>
-      <iframe
-        style="border-radius: 5px;"
-        height="315"
-        src="https://www.youtube-nocookie.com/embed/DaxL4gYwUrU"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        class="w-full mb-5"
-        allowfullscreen
-      >
-      </iframe>
-
-      <div>
-        <h1 class="font-semibold text-lg my-3 underline">Description</h1>
-        <p class="text-sm text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae obcaecati earum molestiae itaque sequi,
-          ad similique. Pariatur quibusdam delectus maxime repudiandae asperiores eligendi amet quae veritatis quasi
-          ullam. Nobis, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae obcaecati earum
-          molestiae itaque sequi, ad similique. Pariatur quibusdam delectus maxime repudiandae asperiores eligendi amet
-          quae veritatis quasi ullam. Nobis, explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Repudiandae obcaecati earum molestiae itaque sequi, ad similique. Pariatur quibusdam delectus maxime
-          repudiandae asperiores eligendi amet quae veritatis quasi ullam. Nobis, explicabo.
-        </p>
-      </div>
+      <ProductDetails client:only="react" />
 
       <div class="pt-10">
         <h1 class="font-bold text-xl my-3">

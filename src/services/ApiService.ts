@@ -28,11 +28,19 @@ async function getResult(category, brands) {
   return await response.json();
 }
 
+async function getProduct(productId) {
+  const requestOptions = buildRequest('GET');
+  const url = buildUrl('/v1/products/' + productId);
+  const response = await fetch(url, requestOptions);
+  return await response.json();
+}
+
 const ApiService = {
   getCategories,
   getBrands,
   getProducts,
   getResult,
+  getProduct,
 };
 
 export default ApiService;
