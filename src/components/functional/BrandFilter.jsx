@@ -1,4 +1,4 @@
-const BrandFilter = ({ brands, onValueChange }) => {
+const BrandFilter = ({ brands, selectedBrands, onValueChange }) => {
   return (
     <>
       <div className="border border-gray-200 p-4 my-8">
@@ -8,8 +8,8 @@ const BrandFilter = ({ brands, onValueChange }) => {
             <label className="inline-flex items-center mt-3 mr-3" key={index}>
               <input
                 type="checkbox"
-                value={brand.id}
-                onChange={(event) => onValueChange(event.target.value, event.target.checked)}
+                checked={selectedBrands[brand.id]}
+                onChange={(event) => onValueChange(brand.id, event.target.checked)}
                 className="form-checkbox h-5 w-5 text-gray-600"
               />
               <span className="ml-2 text-gray-700">{brand.name}</span>

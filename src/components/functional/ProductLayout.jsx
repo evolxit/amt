@@ -5,14 +5,25 @@ import CategoryFilter from './CategoryFilter';
 import ShowResult from './ShowResult';
 
 const ProductLayout = ({ categories, brands }) => {
-  const [selectedCategory, setSelectedCategory] = useState({ id: '', name: '' });
-  const [selectedBrands, setSelectedBrands] = useState([]);
-  const [result, setResult] = useState([]);
-
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
   const category = searchParams.get('category') ?? '';
   const brand = searchParams.get('brand') ?? '';
+
+  const setBrandDefault = () => {
+    let defaultValue = {};
+    brands.map((brand) => {
+      defaultValue = {
+        ...defaultValue,
+        [brand.id]: false,
+      };
+    });
+    return defaultValue;
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState({ id: '', name: '' });
+  const [selectedBrands, setSelectedBrands] = useState(setBrandDefault());
+  const [result, setResult] = useState([]);
 
   const handleCategoryChange = async (value, name, type = 'state') => {
     let category = value;
@@ -23,24 +34,31 @@ const ProductLayout = ({ categories, brands }) => {
       category = '';
     }
 
-    const { list } = await ApiService.getResult(category, selectedBrands);
+    const { list } = await ApiService.getResult(category, getBrandIds(selectedBrands));
     setResult(list);
+  };
+
+  const getBrandIds = (brands) => {
+    return Object.keys(brands).filter((key) => brands[key] == true);
   };
 
   const handleBrandChange = async (value, status) => {
     let brands = [];
-    if (status) {
-      brands = [...selectedBrands, value];
-    } else {
-      brands = selectedBrands.filter((id) => id !== value);
-    }
+    brands = {
+      ...selectedBrands,
+      [value]: status,
+    };
 
-    setSelectedBrands(brands);
-    const { list } = await ApiService.getResult(selectedCategory.id, brands);
+    setSelectedBrands({
+      ...selectedBrands,
+      [value]: status,
+    });
+
+    const { list } = await ApiService.getResult(selectedCategory.id, getBrandIds(brands));
     setResult(list);
   };
 
-  const all = async (category, brand) => {
+  const initializePage = async (category, brand) => {
     if (category) {
       let selected = null;
 
@@ -67,24 +85,33 @@ const ProductLayout = ({ categories, brands }) => {
       }
     }
 
+    if (brand) {
+      setSelectedBrands({
+        ...selectedBrands,
+        [brand]: true,
+      });
+    }
+
     const { list } = await ApiService.getResult(category ?? '', brand ?? []);
     setResult(list);
   };
 
-  // const clearFun = () => {
-  //   setSelectedCategory({ id: '', name: '' });
-  //   setSelectedBrands([]);
-  // };
+  const clearFilter = async () => {
+    setSelectedCategory({ id: '', name: '' });
+    setSelectedBrands(setBrandDefault());
+    const { list } = await ApiService.getResult('', []);
+    setResult(list);
+  };
 
   useEffect(() => {
-    all(category, brand);
+    initializePage(category, brand);
   }, [category, brand]);
 
   return (
     <>
       <div className="flex">
         <div className="w-1/4">
-          <BrandFilter brands={brands} onValueChange={handleBrandChange} />
+          <BrandFilter brands={brands} selectedBrands={selectedBrands} onValueChange={handleBrandChange} />
           <CategoryFilter
             categories={categories}
             onValueChange={handleCategoryChange}
@@ -92,8 +119,8 @@ const ProductLayout = ({ categories, brands }) => {
           />
         </div>
         <div className="w-3/4">
-          {/* <span
-            onClick={clearFun}
+          <span
+            onClick={clearFilter}
             className="float-right mt-5 border border-gray-200 rounded px-3 py-2 text-sm cursor-pointer hover:bg-blue-100"
           >
             <svg
@@ -111,7 +138,7 @@ const ProductLayout = ({ categories, brands }) => {
               />
             </svg>
             Clear All
-          </span> */}
+          </span>
           <ShowResult data={result} />
         </div>
       </div>

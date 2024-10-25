@@ -14,7 +14,6 @@ const ProductDetails = () => {
 
   const getProduct = async (productId) => {
     const { list } = await ApiService.getProduct(productId);
-    console.log('list', list);
     setProduct(list);
   };
 
