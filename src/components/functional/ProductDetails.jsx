@@ -25,8 +25,14 @@ const ProductDetails = () => {
   const showVariantValues = (name, variant) => {
     if (name !== '' && name !== null) {
       return (
-        <p>
-          <strong>{name}</strong> : {variant.join(', ')}
+        <p className="py-2">
+          <strong className="capitalize text-sm">{name}</strong>
+          <br />
+          {name == 'colors'
+            ? variant.map((v) => (
+                <span className="inline-block w-5 -mb-1 h-5 rounded-full mr-2" style={{ backgroundColor: v }}></span>
+              ))
+            : variant.join(', ')}
         </p>
       );
     }
@@ -37,32 +43,32 @@ const ProductDetails = () => {
       <div className="">
         <div className="flex mb-10">
           <div className="flex-1">
-            <img src={product.coverImage ?? defaultImg.src} />
+            <img src={product.coverImage ?? defaultImg.src} className="rounded w-[90%]" />
           </div>
           <div className="flex-1">
             <h1 className="mb-3 font-bold text-xl">{product.name}</h1>
-            <p>6500 ks</p>
+            {product.price !== null && product.price > 0 ? <div>{product.price} ks</div> : ''}
             <p>{product.description}</p>
 
             {getVariantKeys(product.variants).map((variantName, index) => (
               <div key={index}>
-                <p>
+                {/* <p>
                   Key: {variantName} : Value: {JSON.stringify(product.variants[variantName] ?? {})}
-                </p>
+                </p> */}
                 {showVariantValues(variantName, product.variants[variantName])}
               </div>
             ))}
 
-            <div className="flex">
+            <div className="flex my-5 border-t-2 border-t-gray-400 pt-5">
               <div className="w-1/3">
-                <p>SKU</p>
-                <p>Category</p>
-                <p>Tag</p>
+                <p className="mb-2 font-bold">SKU : </p>
+                <p className="mb-2 font-bold">Category : </p>
+                {/* <p className="mb-2 font-bold">Tag : </p> */}
               </div>
               <div className="w-2/3">
-                <p>{product.sku}</p>
-                <p>{product.category}</p>
-                <p>{product.tag}</p>
+                <p className="mb-2">{product.sku}</p>
+                <p className="mb-2">{product.category}</p>
+                {/* <p className="mb-2">{product.tag} </p> */}
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import defaultImg from '~/assets/images/default.png';
 import newIcon from '~/assets/images/newIcon.png';
 
 const Product = ({ product }) => {
+  const productLink = '/product-detail?product=' + product.id;
   return (
     <div className="">
       {product && (
@@ -24,7 +25,7 @@ const Product = ({ product }) => {
               </a>
               <div className="p-3 text-xs bg-gray-50">
                 <h2 className="font-semibold ">
-                  <a href="/product-detail" className="text-third-500 hover:text-third-400">
+                  <a href={productLink} className="text-third-500 hover:text-third-400">
                     {product.name}
                   </a>
                   <br />
