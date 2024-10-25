@@ -1,4 +1,23 @@
+import ApiService from './services/ApiService';
 import { getPermalink } from './utils/permalinks';
+
+const categoryData = await ApiService.getCategories();
+const categoryList = categoryData.list;
+
+const getLinks = () => {
+  let links = [
+    {
+      text: 'All Products',
+      href: getPermalink('products'),
+    },
+    ...categoryList.map((category) => ({
+      text: category.name,
+      href: '/products?category=' + category.id,
+    })),
+  ];
+
+  return links;
+};
 
 export const headerData = {
   links: [
@@ -9,28 +28,7 @@ export const headerData = {
     {
       text: 'Products',
 
-      links: [
-        {
-          text: 'All Products',
-          href: getPermalink('products'),
-        },
-        {
-          text: 'Correction & Adhesion',
-          href: getPermalink('#'),
-        },
-        {
-          text: 'Office Supplies',
-          href: getPermalink('#'),
-        },
-        {
-          text: 'Shearing & Cutting',
-          href: getPermalink('#'),
-        },
-        {
-          text: 'Stapling & Punching',
-          href: getPermalink('#'),
-        },
-      ],
+      links: getLinks(),
     },
     {
       text: 'About',
