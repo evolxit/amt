@@ -35,12 +35,20 @@ async function getProduct(productId) {
   return await response.json();
 }
 
+async function getPopularProducts() {
+  const requestOptions = buildRequest('GET');
+  const url = buildUrl('/v1/popular-products');
+  const response = await fetch(url, requestOptions);
+  return await response.json();
+}
+
 const ApiService = {
   getCategories,
   getBrands,
   getProducts,
   getResult,
   getProduct,
+  getPopularProducts,
 };
 
 export default ApiService;

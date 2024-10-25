@@ -28,8 +28,12 @@ const ProductDetails = () => {
           <strong className="capitalize text-sm">{name}</strong>
           <br />
           {name == 'colors'
-            ? variant.map((v) => (
-                <span className="inline-block w-5 -mb-1 h-5 rounded-full mr-2" style={{ backgroundColor: v }}></span>
+            ? variant.map((v, index) => (
+                <span
+                  key={index}
+                  className="inline-block w-5 -mb-1 h-5 rounded-full mr-2"
+                  style={{ backgroundColor: v }}
+                ></span>
               ))
             : variant.join(', ')}
         </p>

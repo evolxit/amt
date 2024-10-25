@@ -13,7 +13,11 @@ const BrandList = ({ brands }) => {
               <a href={`/products?brand=${brand.id}`} className="hover:text-blue-500">
                 <img className="rounded-t-sm img-hover" src={defaultImg.src} alt="" />
               </a>
-              <h2 className="text-center font-semibold text-sm mt-5">{brand.name}</h2>
+              <h2 className="text-center font-semibold text-sm mt-5">
+                <a href={`/products?brand=${brand.id}`} className="hover:text-blue-500">
+                  {brand.name}
+                </a>
+              </h2>
             </div>
           ))}
       </div>
