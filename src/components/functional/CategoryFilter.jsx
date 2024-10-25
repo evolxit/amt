@@ -45,7 +45,7 @@ const CategoryFilter = ({ categories, onValueChange, selectedCategory }) => {
                     id={child.id}
                   />
                   <label
-                    className="peer-checked:text-third-600 peer-checked:font-semibold p-2 cursor-pointer text-sm text-gray-500 hover:bg-gray-100 block rounded"
+                    className="p-2 cursor-pointer text-sm text-gray-500 hover:bg-gray-100 block rounded"
                     htmlFor={child.id}
                   >
                     {child.name}

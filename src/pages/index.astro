@@ -1,7 +1,10 @@
 ---
 import Img from '~/components/common/Img.astro';
+import BrandList from '~/components/functional/BrandList';
+import CategoryList from '~/components/functional/CategoryList';
 import Product from '~/components/functional/Product';
 import Layout from '~/layouts/PageLayout.astro';
+import ApiService from '~/services/ApiService';
 
 const metadata = {
   title: 'AMT',
@@ -13,9 +16,6 @@ const authorized1 = '~/assets/images/authorized1.png';
 const authorized2 = '~/assets/images/authorized2.png';
 const authorized3 = '~/assets/images/authorized3.png';
 const authorized4 = '~/assets/images/authorized4.png';
-const defaultImg = '~/assets/images/defaultImage.png';
-// const myanmar = '~/assets/images/mm-home.png';
-// const newIcon = '~/assets/images/newIcon.png';
 
 const cover = '/p1.jpg';
 const testData = [
@@ -24,6 +24,12 @@ const testData = [
   { id: 1, name: 'Product 3', sku: 'TA603', coverImage: cover, isNew: false },
   { id: 1, name: 'Product 4', sku: 'TA603', coverImage: cover, isNew: false },
 ];
+
+const categoryData = await ApiService.getCategories();
+const categoryList = categoryData.list;
+
+const brandData = await ApiService.getBrands();
+const brands = brandData.list;
 ---
 
 <Layout metadata={metadata}>
@@ -48,121 +54,11 @@ const testData = [
   </div>
 
   <div class="w-full mt-10 px-10 relative" id="popular">
-    <div class="xl:w-10/12 mx-auto pt-10">
-      <div class="mx-auto mb-5">
-        <h3 class="font-bold text-3xl text-black">Our Categories</h3>
-      </div>
-      <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10">
-        <div class="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50">
-          <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
-            <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-          </div>
-          <div class="p-6 pt-3">
-            <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900 mb-2">
-              Correction & Adhesion
-            </p>
-            <p class="font-sans antialiased font-normal leading-normal text-gray-700 opacity-75">
-              <ul class="list-disc px-3 text-xs">
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Correction Pen & Tape</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Eraser & Eraser Refill</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Tape & Tape Dispener</a></li>
-              </ul>
-            </p>
-          </div>
-        </div>
-        <div class="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50">
-          <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
-            <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-          </div>
-          <div class="p-6 pt-3">
-            <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900 mb-2">
-              Office Supplies
-            </p>
-            <p class="font-sans antialiased font-normal leading-normal text-gray-700 opacity-75">
-              <ul class="list-disc px-3 text-xs">
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Ball Pen</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Clip & Clip Dispenser</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Hardwood Pencil & Mechnical Pencil</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Marker & High lighter</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Ruler & Compasses</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Advertising Ball Pen</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Gel ink pens & Premium</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">BEIFA - Wax Crayons</a></li>
-              </ul>
-            </p>
-          </div>
-        </div>
-        <div class="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50">
-          <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
-            <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-          </div>
-          <div class="p-6 pt-3">
-            <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900 mb-2">
-              Shearing & Cutting
-            </p>
-            <p class="font-sans antialiased font-normal leading-normal text-gray-700 opacity-75">
-              <ul class="list-disc px-3 text-xs">
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Correction Pen & Tape</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Eraser & Eraser Refill</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Tape & Tape Dispener</a></li>
-              </ul>
-            </p>
-          </div>
-        </div>
-        <div class="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50">
-          <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
-            <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-          </div>
-          <div class="p-6 pt-3">
-            <p class="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900 mb-2">
-              Stapling & Punching
-            </p>
-            <p class="font-sans antialiased font-normal leading-normal text-gray-700 opacity-75">
-              <ul class="list-disc px-3 text-xs">
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Correction Pen & Tape</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Eraser & Eraser Refill</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Tape & Tape Dispener</a></li>
-                <li class="py-1"><a href="#" class="hover:text-blue-500">Tape & Tape Dispener</a></li>
-              </ul>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <CategoryList categories={categoryList} client:only="react" />
   </div>
 
   <div class="w-full mt-10 px-10 relative" id="popular">
-    <div class="xl:w-10/12 mx-auto pt-10">
-      <div class="mx-auto mb-5">
-        <h3 class="font-bold text-3xl text-black">Brands</h3>
-      </div>
-      <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
-        <div class="w-full">
-          <a href="#">
-            <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-          </a>
-          <!-- <h2 class="text-center font-semibold text-sm mt-5">Correction & Adhesion</h2> -->
-        </div>
-        <div class="w-full">
-          <a href="#">
-            <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-          </a>
-          <!-- <h2 class="text-center font-semibold text-sm mt-5">Office Supplies</h2> -->
-        </div>
-        <div class="w-full">
-          <a href="#">
-            <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-          </a>
-          <!-- <h2 class="text-center font-semibold text-sm mt-5">Shearing & Cutting</h2> -->
-        </div>
-        <div class="w-full">
-          <a href="#">
-            <Img src={defaultImg} alt="App Store Image" class:list={'w-full object-contain'} />
-          </a>
-          <!-- <h2 class="text-center font-semibold text-sm mt-5">Stapling & Punching</h2> -->
-        </div>
-      </div>
-    </div>
+    <BrandList brands={brands} client:only="react" />
   </div>
 
   <div class="w-full mt-10 p-5 px-10 relative" id="popular">
@@ -225,87 +121,6 @@ const testData = [
       </div>
     </div>
   </div>
-
-  <!-- <div class="w-full md:flex bg-gray-200 mt-5 py-10 relative justify-center">
-    <div class="flex-1 h-full flex content-center w-full px-10 lg:px-0 xl:max-w-md md:pl-10">
-      <div class="w-full lg:w-2/3 mx-auto p-10 bg-white rounded">
-        <Img src={myanmar} alt="" class:list={'w-full'} />
-      </div>
-    </div>
-    <div
-      class="flex-1 px-10 pt-10 md:pt-0 md:px-5 xl:max-w-md flex flex-wrap content-center justify-center md:justify-normal"
-    >
-      <div>
-        <h1 class="text-center font-semibold my-3 text-2xl">Our Distribution Channels</h1>
-        <div class="my-10">
-          <span class="font-bold text-sm">1. Yangon Office :</span><br />
-          <div class="text-sm text-blue-600 pl-3">+959429971353,<br /> +959770303273, 01-554914</div>
-        </div>
-        <div class="">
-          <span class="font-bold text-sm">2. Mandalay Office :</span><br />
-          <div class="text-sm text-blue-600 pl-3">+959443506236,<br /> 02-2832236</div>
-        </div>
-        <span class="text-sm inline-block mt-8 font-bold">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="w-4 h-4 inline"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
-          </svg>
-
-          Contact Us</span
-        >
-      </div>
-    </div>
-  </div> -->
-  <!-- <div class="w-full flex bg-gray-200 mt-5 py-10 relative justify-center">
-    <div class="flex-1 h-full flex content-center xl:max-w-md">
-      <div class="h-full p-10">
-        <h1 class="font-bold my-3 text-3xl">About Us</h1>
-        <p class="text-sm py-3">
-          Aung Myittar Co.Ltd is a stationery writing tool manufacturing company. We established our companies in 1992
-          by importing semi-finished products and doing assembly at Myanmar.
-        </p>
-        <span class="text-sm inline-block mt-8 font-bold">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="w-4 h-4 inline"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
-          </svg>
-
-          More</span
-        >
-      </div>
-    </div>
-    <div class="flex-1 xl:max-w-md">
-      <h1 class="text-center font-semibold my-3">Authorized Distributor By:</h1>
-      <div class="grid md:grid-cols-2 gap-2 xl:gap-6 p-5 place-content-around">
-        <div class="h-28 xl:max-w-52 bg-white rounded-md flex flex-wrap justify-center content-center">
-          <Img src={authorized1} alt="" class:list={'object-none h-24'} />
-        </div>
-        <div class="h-28 xl:max-w-52 bg-white rounded-md flex flex-wrap justify-center content-center">
-          <Img src={authorized2} alt="" class:list={'object-none h-24'} />
-        </div>
-        <div class="h-28 xl:max-w-52 bg-white rounded-md flex flex-wrap justify-center content-center">
-          <Img src={authorized3} alt="" class:list={'object-none h-24'} />
-        </div>
-        <div class="h-28 xl:max-w-52 bg-white rounded-md flex flex-wrap justify-center content-center">
-          <Img src={authorized4} alt="" class:list={'object-none h-24'} />
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- Content Widget **************** -->
 
   <style>
     .banner-area {
