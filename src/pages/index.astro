@@ -13,13 +13,8 @@ const metadata = {
 
 const bannerImg = '~/assets/images/slide1.png';
 
-const cover = '/p1.jpg';
-const testData = [
-  { id: 1, name: 'Product 1', sku: 'TA603', coverImage: cover, isNew: false },
-  { id: 1, name: 'Product 2', sku: 'TA603', coverImage: cover, isNew: true },
-  { id: 1, name: 'Product 3', sku: 'TA603', coverImage: cover, isNew: false },
-  { id: 1, name: 'Product 4', sku: 'TA603', coverImage: cover, isNew: false },
-];
+const popularProduct = await ApiService.getPopularProducts();
+const populars = popularProduct.list;
 
 const categoryData = await ApiService.getCategories();
 const categoryList = categoryData.list;
@@ -62,14 +57,14 @@ const brands = brandData.list;
       <div class="mx-auto mb-5">
         <h3 class="font-bold text-3xl text-black">
           Our Popular Products <a
-            href="#"
+            href="/products"
             class="text-sm font-semibold hover:text-blue-800 hover:underline pt-3 text-blue-600 cursor-pointer float-right"
             >Show More</a
           >
         </h3>
       </div>
       <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
-        {testData.length > 0 ? testData.map((product) => <Product product={product} />) : 'No Product!'}
+        {populars.length > 0 ? populars.map((product) => <Product product={product} />) : 'No Product!'}
       </div>
     </div>
   </div>
