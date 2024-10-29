@@ -32,11 +32,9 @@ const ArrowCarousal = ({ brands }) => {
   const [currentIndex, setCurrentIndex] = useState(1);
 
   const prevSlide = () => {
-    console.log('currentIndex prev', currentIndex);
     showSlide(currentIndex - 1);
   };
   const nextSlide = () => {
-    console.log('currentIndex nxt', currentIndex);
     showSlide(currentIndex + 1);
   };
 
@@ -50,8 +48,6 @@ const ArrowCarousal = ({ brands }) => {
     } else {
       setCurrentIndex(index);
     }
-
-    console.log('currentIndex', currentIndex);
 
     setTranslateX(currentIndex * 100);
   };
