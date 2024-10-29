@@ -1,32 +1,32 @@
 import { useState } from 'react';
-import defaultImg from '~/assets/images/default.png';
-import slide1 from '~/assets/images/slide1.png';
-import slide2 from '~/assets/images/slide2.png';
+// import defaultImg from '~/assets/images/default.png';
+// import slide1 from '~/assets/images/slide1.png';
+// import slide2 from '~/assets/images/slide2.png';
 
 const ArrowCarousal = ({ brands }) => {
   console.log('brands', brands);
-  const slides = [
-    {
-      id: 1,
-      image: defaultImg.src,
-      title: 'Noti Correction Pen',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
-    },
-    {
-      id: 2,
-      image: slide1.src,
-      title: 'Noti Correction Pen',
-      description: 'Consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
-    },
-    {
-      id: 3,
-      image: slide2.src,
-      title: 'Noti Correction Pen',
-      description: 'Adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
-    },
-  ];
-  console.log('slides', slides);
+  // const slides = [
+  //   {
+  //     id: 1,
+  //     image: defaultImg.src,
+  //     title: 'Noti Correction Pen',
+  //     description:
+  //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  //   },
+  //   {
+  //     id: 2,
+  //     image: slide1.src,
+  //     title: 'Noti Correction Pen',
+  //     description: 'Consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  //   },
+  //   {
+  //     id: 3,
+  //     image: slide2.src,
+  //     title: 'Noti Correction Pen',
+  //     description: 'Adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  //   },
+  // ];
+  // console.log('slides', slides);
 
   const [translateX, setTranslateX] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
