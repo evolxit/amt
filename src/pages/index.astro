@@ -1,5 +1,5 @@
 ---
-import BrandList from '~/components/functional/BrandList';
+import ArrowCarousal from '~/components/functional/ArrowCarousal.jsx';
 import CategoryList from '~/components/functional/CategoryList';
 import Product from '~/components/functional/Product';
 import Slider from '~/components/ui/Slider.astro';
@@ -28,8 +28,12 @@ const brands = brandData.list;
     <CategoryList categories={categoryList} client:only="react" />
   </div>
 
-  <div class="w-full mt-10 px-10 relative" id="popular">
-    <BrandList brands={brands} client:only="react" />
+  <div class="w-full mt-10 px-10 relative">
+    <div class="mx-auto mb-5">
+      <h3 class="font-bold text-3xl text-black">Brands</h3>
+    </div>
+    <!-- <BrandList brands={brands} client:only="react" /> -->
+    <ArrowCarousal brands={brands} client:only="react" />
   </div>
 
   <div class="w-full mt-10 p-5 px-10 relative" id="popular">
