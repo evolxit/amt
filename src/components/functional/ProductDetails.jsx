@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import defaultImg from '~/assets/images/default.png';
 import ApiService from '~/services/ApiService';
 
 const queryString = window.location.search;
@@ -46,7 +45,7 @@ const ProductDetails = () => {
       <div className="">
         <div className="flex mb-10">
           <div className="flex-1">
-            <img src={product.coverImage ?? defaultImg.src} className="rounded w-[90%]" />
+            <img src={product.coverImage ?? 'https://placehold.jp/800x600.png'} className="rounded w-[90%]" />
           </div>
           <div className="flex-1">
             <h1 className="mb-3 font-bold text-xl">{product.name}</h1>

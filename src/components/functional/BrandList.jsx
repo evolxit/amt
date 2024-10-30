@@ -2,7 +2,7 @@ import defaultImg from '~/assets/images/default.png';
 
 const BrandList = ({ brands }) => {
   return (
-    <div className="xl:w-10/12 mx-auto pt-10">
+    <div className="mx-auto pt-10">
       <div className="mx-auto mb-5">
         <h3 className="font-bold text-3xl text-black">Brands</h3>
       </div>

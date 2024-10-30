@@ -24,38 +24,39 @@ const brands = brandData.list;
 <Layout metadata={metadata}>
   <Slider />
 
-  <div class="w-full mt-10 px-10 relative" id="popular">
-    <CategoryList categories={categoryList} client:only="react" />
-  </div>
-
-  <div class="w-full mt-10 px-10 relative">
-    <div class="mx-auto mb-5">
-      <h3 class="font-bold text-3xl text-black">Brands</h3>
+  <div class="px-10 lg:px-16">
+    <div class="w-full mt-10 relative" id="popular">
+      <CategoryList categories={categoryList} client:only="react" />
     </div>
-    <!-- <BrandList brands={brands} client:only="react" /> -->
-    <ArrowCarousal brands={brands} client:only="react" />
-  </div>
 
-  <div class="w-full mt-10 p-5 px-10 relative" id="popular">
-    <div class="xl:w-10/12 mx-auto py-10">
+    <div class="w-full mt-10 relative">
       <div class="mx-auto mb-5">
-        <h3 class="font-bold text-3xl text-black">
-          Our Popular Products <a
-            href="/products"
-            class="text-sm font-semibold hover:text-blue-800 hover:underline pt-3 text-blue-600 cursor-pointer float-right"
-            >Show More</a
-          >
-        </h3>
+        <h3 class="font-bold text-3xl text-black">Brands</h3>
       </div>
-      <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
-        {populars.length > 0 ? populars.map((product) => <Product product={product} />) : 'No Product!'}
+      <!-- <BrandList brands={brands} client:only="react" /> -->
+      <ArrowCarousal brands={brands} client:only="react" />
+    </div>
+
+    <div class="w-full mt-10 py-5 relative" id="popular">
+      <div class="mx-auto py-10">
+        <div class="mx-auto mb-5">
+          <h3 class="font-bold text-3xl text-black">
+            Our Popular Products <a
+              href="/products"
+              class="text-sm font-semibold hover:text-blue-800 hover:underline pt-3 text-blue-600 cursor-pointer float-right"
+              >Show More</a
+            >
+          </h3>
+        </div>
+        <div class="w-full grid lg:grid-cols-4 md:grid-cols-2 gap-6">
+          {populars.length > 0 ? populars.map((product) => <Product product={product} />) : 'No Product!'}
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="w-full md:flex mt-5 p-10 relative justify-center about text-white" style="background: #00225D;
-;">
-    <div class="flex-1 h-full flex content-center xl:max-w-md">
+  <div class="w-full md:flex mt-5 p-10 lg:px-16 relative justify-center about text-white" style="background: #00225D;">
+    <div class="flex-1 h-full flex content-center">
       <div class="h-full py-10">
         <h1 class="font-bold my-3 text-3xl">About Us</h1>
         <p class="text-sm py-3">

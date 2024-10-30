@@ -1,5 +1,6 @@
 ---
 import Img from '~/components/common/Img.astro';
+import TimeLineHistory from '~/components/functional/TimeLineHistory.jsx';
 import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -20,6 +21,83 @@ const imgArr = [
   '~/assets/images/authorized2.png',
   '~/assets/images/authorized1.png',
 ];
+
+const history = [
+  {
+    id: 1,
+    year: '2006',
+    title: 'Invest in others founded',
+    description:
+      'Culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  },
+  {
+    id: 2,
+    year: '2007',
+    title: 'Invest in others founded',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.',
+  },
+  {
+    id: 3,
+    year: '2008',
+    title: 'Invest in others founded',
+    description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  },
+  {
+    id: 4,
+    year: '2009',
+    title: 'Invest in others founded',
+    description:
+      'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  },
+  // {
+  //   id: 5,
+  //   year: '2006',
+  //   title: 'Invest in others founded',
+  //   description:
+  //     'Culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  // },
+  // {
+  //   id: 6,
+  //   year: '2007',
+  //   title: 'Invest in others founded',
+  //   description:
+  //     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.',
+  // },
+  // {
+  //   id: 7,
+  //   year: '2008',
+  //   title: 'Invest in others founded',
+  //   description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  // },
+  // {
+  //   id: 8,
+  //   year: '2009',
+  //   title: 'Invest in others founded',
+  //   description:
+  //     'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  // },
+  // {
+  //   id: 9,
+  //   year: '2010',
+  //   title: 'Invest in others founded',
+  //   description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  // },
+  // {
+  //   id: 10,
+  //   year: '2011',
+  //   title: 'Invest in others founded',
+  //   description:
+  //     'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  // },
+  // {
+  //   id: 10,
+  //   year: '2011',
+  //   title: 'Invest in others founded',
+  //   description:
+  //     'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  // },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -37,15 +115,15 @@ const imgArr = [
     </svg>
     <span class="text-gray-900">About</span>
   </Breadcrumb>
-  <div class="xl:w-9/12 mx-auto">
-    <div class="xl:w-9/12 mx-auto">
+  <div class="w-full px-16">
+    <div class="w-full">
       <h3 class="text-center font-bold text-3xl text-black pt-10 uppercase">
         <span class="text-primary-500">Who</span> We Are
       </h3>
       <!-- <p class="text-center text-gray-400 text-sm">Photos of our Activities!</p> -->
     </div>
 
-    <div class="text-justify text-gray-500 p-10">
+    <div class="text-justify text-gray-500 py-10">
       Aung Myittar Co.Ltd is a stationery writing tool manufacturing company. We established our companies in 1992 by
       importing semi-finished products and doing assembly at Myanmar. In 2007, Aung Myittar has started manufacturing
       pens by importing raw plastic resins and writing fluid ink. Currently, we are the assigned distributor at Myanmar
@@ -55,37 +133,11 @@ const imgArr = [
       distribution office, manufacturing facilities, and an assembly production factory.
     </div>
 
-    <div class="px-10">
-      <p class="font-bold mb-5">Our Story</p>
-      <div class="flex">
-        <div class="flex-1 bg-third-900 text-white">
-          <div class="text-3xl font-bold p-10">2006</div>
-          <div class="px-10 mb-10">Invest in others founded</div>
-        </div>
-        <div class="flex-1 pl-10">
-          <div>Invest in others founded</div>
-          <div class="text-gray-400 text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi
-            incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum
-            sit. Debitis!
-          </div>
-        </div>
-      </div>
-
-      <div class="px-10 relative h-52">
-        <ul class="history w-24">
-          <li class="py-16 w-20">2006</li>
-          <li class="py-16 w-20">2006</li>
-          <li class="py-16 w-20">2006</li>
-          <li class="py-16 w-20">2006</li>
-          <li class="py-16 w-20">2006</li>
-        </ul>
-      </div>
-    </div>
+    <TimeLineHistory history={history} client:only="react" />
   </div>
 
   <!-- distribution channels -->
-  <div class="w-full bg-primary-200 mt-5 p-10 relative justify-center">
+  <div class="w-full bg-primary-200 mt-5 py-10 px-10 lg:px-16 relative justify-center">
     <div class="md:flex bg-white">
       <div class="flex-1 h-full flex content-center w-full px-10 lg:px-0 xl:max-w-md xl:mx-auto md:pl-10">
         <div class="w-full lg:w-2/3 mx-auto p-10 bg-white rounded">
@@ -125,7 +177,7 @@ const imgArr = [
   </div>
 
   <!-- our values -->
-  <div class="bg-third-900 p-10 flex flex-col justify-center">
+  <div class="bg-third-900 py-10 px-10 lg:px-16 flex flex-col justify-center">
     <div class="text-center text-white text-3xl font-bold pb-10 shadow-text-light">Our Value</div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-4 justify-between">
       <div class="bg-white rounded-full h-36 w-36 flex flex-wrap content-center justify-center font-bold">
@@ -244,20 +296,20 @@ const imgArr = [
   </div>
 
   <!-- list of partners -->
-  <div class="w-full px-10 xl:container xl:mx-auto pb-20">
+  <div class="w-full pb-20 px-10 lg:px-16">
     <div class="text-center font-bold text-2xl mb-8">List of Partners</div>
     <div class="grid grid-cols-4 gap-6">
       {
         imgArr.length > 0 ? (
           imgArr.map((img) => {
             return (
-              <div class="h-28 xl:max-w-52 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
+              <div class="h-28 xl:h-32 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
                 <Img src={img} alt="" class:list={'object-none h-24'} />
               </div>
             );
           })
         ) : (
-          <div class="h-28 xl:max-w-52 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
+          <div class="h-28 xl:h-32 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
             <Img src={authorized2} alt="" class:list={'object-none h-24'} />
           </div>
         )

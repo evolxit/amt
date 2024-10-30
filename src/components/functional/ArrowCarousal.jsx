@@ -1,42 +1,40 @@
 import { useState } from 'react';
-import defaultImg from '~/assets/images/default.png';
-import slide1 from '~/assets/images/slide1.png';
-import slide2 from '~/assets/images/slide2.png';
+// import defaultImg from '~/assets/images/default.png';
+// import slide1 from '~/assets/images/slide1.png';
+// import slide2 from '~/assets/images/slide2.png';
 
 const ArrowCarousal = ({ brands }) => {
   console.log('brands', brands);
-  const slides = [
-    {
-      id: 1,
-      image: defaultImg.src,
-      title: 'Noti Correction Pen',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
-    },
-    {
-      id: 2,
-      image: slide1.src,
-      title: 'Noti Correction Pen',
-      description: 'Consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
-    },
-    {
-      id: 3,
-      image: slide2.src,
-      title: 'Noti Correction Pen',
-      description: 'Adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
-    },
-  ];
-  console.log('slides', slides);
+  // const slides = [
+  //   {
+  //     id: 1,
+  //     image: defaultImg.src,
+  //     title: 'Noti Correction Pen',
+  //     description:
+  //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  //   },
+  //   {
+  //     id: 2,
+  //     image: slide1.src,
+  //     title: 'Noti Correction Pen',
+  //     description: 'Consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  //   },
+  //   {
+  //     id: 3,
+  //     image: slide2.src,
+  //     title: 'Noti Correction Pen',
+  //     description: 'Adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  //   },
+  // ];
+  // console.log('slides', slides);
 
   const [translateX, setTranslateX] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
 
   const prevSlide = () => {
-    console.log('currentIndex prev', currentIndex);
     showSlide(currentIndex - 1);
   };
   const nextSlide = () => {
-    console.log('currentIndex nxt', currentIndex);
     showSlide(currentIndex + 1);
   };
 
@@ -50,8 +48,6 @@ const ArrowCarousal = ({ brands }) => {
     } else {
       setCurrentIndex(index);
     }
-
-    console.log('currentIndex', currentIndex);
 
     setTranslateX(currentIndex * 100);
   };
@@ -78,7 +74,7 @@ const ArrowCarousal = ({ brands }) => {
             ))}
         </div>
         <button
-          className="translate-y-2/4 shadow bg-red-700 hover:text-primary-300 text-white text-xl border-0 cursor-pointer top-[30%] rounded-sm absolute left-0"
+          className="translate-y-2/4 shadow bg-gray-400 hover:text-gray-200 text-white text-xl border-0 cursor-pointer top-[30%] xl:top-[40%] rounded-sm absolute left-0"
           onClick={prevSlide}
         >
           {/* &#10094; */}
@@ -95,7 +91,7 @@ const ArrowCarousal = ({ brands }) => {
           </svg>
         </button>
         <button
-          className="translate-y-2/4 shadow bg-red-700 hover:text-primary-300 text-white text-xl border-0 cursor-pointer top-[30%] rounded-sm absolute right-0"
+          className="translate-y-2/4 shadow bg-gray-400 hover:text-gray-200 text-white text-xl border-0 cursor-pointer top-[30%] xl:top-[40%] rounded-sm absolute right-0"
           onClick={nextSlide}
         >
           {/* &#10095; */}
