@@ -1,8 +1,6 @@
-import defaultImg from '~/assets/images/default.png';
-
 const CategoryList = ({ categories }) => {
   return (
-    <div className="xl:w-10/12 mx-auto pt-10">
+    <div className="mx-auto pt-10">
       <div className="mx-auto mb-5">
         <h3 className="font-bold text-3xl text-black">Our Categories</h3>
       </div>
@@ -13,10 +11,10 @@ const CategoryList = ({ categories }) => {
               key={category.id}
               className="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50"
             >
-              <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
-                <img className="rounded-t-sm img-hover" src={defaultImg.src} alt="" />
+              <div className="relative m-6 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
+                <img className="rounded-t-sm object-cover w-full" src="https://placehold.jp/400x300.png" alt="" />
               </div>
-              <div className="p-6 pt-3">
+              <div className="px-6 pb-6 ">
                 <p className="block font-sans text-lg antialiased font-medium leading-relaxed text-blue-gray-900 mb-2">
                   {category.name}
                 </p>

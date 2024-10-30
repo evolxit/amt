@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import defaultImg from '~/assets/images/defaultImage.png';
 
 const Tabs = () => {
   const [openTab, setOpenTab] = useState(1);
@@ -47,7 +46,11 @@ const Tabs = () => {
           <div className="transition-all duration-300 bg-white p-4 px-0">
             <div className="md:flex">
               <div className="max-w-sm md:w-1/4">
-                <img src={defaultImg.src} alt="Correction & Adhesion" className="w-full object-contain rounded" />
+                <img
+                  src="https://placehold.jp/300x300.png"
+                  alt="Correction & Adhesion"
+                  className="w-full object-contain rounded"
+                />
               </div>
               <div className="md:w-3/4 pl-0 md:pl-10">
                 <h1 className="font-bold">2024 Catalog Correction & Adhesion</h1>
@@ -67,7 +70,11 @@ const Tabs = () => {
           <div className="transition-all duration-300 bg-white p-4 px-0">
             <div className="md:flex">
               <div className="max-w-sm md:w-1/4">
-                <img src={defaultImg.src} alt="Correction & Adhesion" className="w-full object-contain rounded" />
+                <img
+                  src="https://placehold.jp/300x300.png"
+                  alt="Correction & Adhesion"
+                  className="w-full object-contain rounded"
+                />
               </div>
               <div className="md:w-3/4 pl-0 md:pl-10">
                 <h1 className="font-bold">2024 Catalog Office Supplies</h1>
@@ -87,7 +94,11 @@ const Tabs = () => {
           <div className="transition-all duration-300 bg-white p-4 px-0">
             <div className="md:flex">
               <div className="max-w-sm md:w-1/4">
-                <img src={defaultImg.src} alt="Correction & Adhesion" className="w-full object-contain rounded" />
+                <img
+                  src="https://placehold.jp/300x300.png"
+                  alt="Correction & Adhesion"
+                  className="w-full object-contain rounded"
+                />
               </div>
               <div className="md:w-3/4 pl-0 md:pl-10">
                 <h1 className="font-bold">2024 Catalog Shearing</h1>
@@ -107,7 +118,11 @@ const Tabs = () => {
           <div className="transition-all duration-300 bg-white p-4 px-0">
             <div className="md:flex">
               <div className="max-w-sm md:w-1/4">
-                <img src={defaultImg.src} alt="Correction & Adhesion" className="w-full object-contain rounded" />
+                <img
+                  src="https://placehold.jp/300x300.png"
+                  alt="Correction & Adhesion"
+                  className="w-full object-contain rounded"
+                />
               </div>
               <div className="md:w-3/4 pl-0 md:pl-10 mt-3 md:mt-0">
                 <h1 className="font-bold">2024 Catalog Stapling</h1>

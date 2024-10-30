@@ -74,7 +74,7 @@ const ArrowCarousal = ({ brands }) => {
             ))}
         </div>
         <button
-          className="translate-y-2/4 shadow bg-red-700 hover:text-primary-300 text-white text-xl border-0 cursor-pointer top-[30%] rounded-sm absolute left-0"
+          className="translate-y-2/4 shadow bg-gray-400 hover:text-gray-200 text-white text-xl border-0 cursor-pointer top-[30%] xl:top-[40%] rounded-sm absolute left-0"
           onClick={prevSlide}
         >
           {/* &#10094; */}
@@ -91,7 +91,7 @@ const ArrowCarousal = ({ brands }) => {
           </svg>
         </button>
         <button
-          className="translate-y-2/4 shadow bg-red-700 hover:text-primary-300 text-white text-xl border-0 cursor-pointer top-[30%] rounded-sm absolute right-0"
+          className="translate-y-2/4 shadow bg-gray-400 hover:text-gray-200 text-white text-xl border-0 cursor-pointer top-[30%] xl:top-[40%] rounded-sm absolute right-0"
           onClick={nextSlide}
         >
           {/* &#10095; */}
