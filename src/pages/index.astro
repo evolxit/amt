@@ -1,6 +1,6 @@
 ---
-import ArrowCarousal from '~/components/functional/ArrowCarousal.jsx';
 import CategoryList from '~/components/functional/CategoryList';
+import ImageCarousal from '~/components/functional/ImageCarousal.jsx';
 import Product from '~/components/functional/Product';
 import TextCarousal from '~/components/functional/TextCarousal';
 import Slider from '~/components/ui/Slider.astro';
@@ -112,7 +112,7 @@ const history = [
         <h3 class="font-bold text-3xl text-black">Brands</h3>
       </div>
       <!-- <BrandList brands={brands} client:only="react" /> -->
-      <ArrowCarousal brands={brands} client:only="react" />
+      <ImageCarousal brands={brands} client:only="react" />
     </div>
 
     <div class="w-full mt-10 py-5 relative" id="popular">

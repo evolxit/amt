@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ArrowCarousal = ({ brands }) => {
+const ImageCarousal = ({ brands }) => {
   const [translateX, setTranslateX] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
 
@@ -83,4 +83,4 @@ const ArrowCarousal = ({ brands }) => {
   );
 };
 
-export default ArrowCarousal;
+export default ImageCarousal;
