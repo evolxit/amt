@@ -10,19 +10,7 @@ const metadata = {
   title: 'About us',
 };
 
-const aboutImg = '~/assets/images/about-img.png';
 const myanmar = '~/assets/images/mm-home.png';
-const authorized2 = '~/assets/images/authorized4.png';
-const imgArr = [
-  '~/assets/images/noti.png',
-  '~/assets/images/zebra.png',
-  '~/assets/images/joy.png',
-  '~/assets/images/pass.png',
-  '~/assets/images/authorized4.png',
-  '~/assets/images/super.png',
-  '~/assets/images/authorized2.png',
-  '~/assets/images/authorized1.png',
-];
 
 const brandData = await ApiService.getBrands();
 const brands = brandData.list;
@@ -55,53 +43,53 @@ const history = [
     description:
       'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
   },
-  // {
-  //   id: 5,
-  //   year: '2006',
-  //   title: 'Invest in others founded',
-  //   description:
-  //     'Culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
-  // },
-  // {
-  //   id: 6,
-  //   year: '2007',
-  //   title: 'Invest in others founded',
-  //   description:
-  //     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.',
-  // },
-  // {
-  //   id: 7,
-  //   year: '2008',
-  //   title: 'Invest in others founded',
-  //   description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
-  // },
-  // {
-  //   id: 8,
-  //   year: '2009',
-  //   title: 'Invest in others founded',
-  //   description:
-  //     'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
-  // },
-  // {
-  //   id: 9,
-  //   year: '2010',
-  //   title: 'Invest in others founded',
-  //   description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
-  // },
-  // {
-  //   id: 10,
-  //   year: '2011',
-  //   title: 'Invest in others founded',
-  //   description:
-  //     'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
-  // },
-  // {
-  //   id: 10,
-  //   year: '2011',
-  //   title: 'Invest in others founded',
-  //   description:
-  //     'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
-  // },
+  {
+    id: 5,
+    year: '2018',
+    title: 'Invest in others founded',
+    description:
+      'Culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  },
+  {
+    id: 6,
+    year: '2019',
+    title: 'Invest in others founded',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.',
+  },
+  {
+    id: 7,
+    year: '2020',
+    title: 'Invest in others founded',
+    description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  },
+  {
+    id: 8,
+    year: '2021',
+    title: 'Invest in others founded',
+    description:
+      'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  },
+  {
+    id: 9,
+    year: '2022',
+    title: 'Invest in others founded',
+    description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  },
+  {
+    id: 10,
+    year: '2023',
+    title: 'Invest in others founded',
+    description:
+      'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  },
+  {
+    id: 11,
+    year: '2024',
+    title: 'Invest in others founded',
+    description:
+      'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+  },
 ];
 ---
 
@@ -120,7 +108,7 @@ const history = [
     </svg>
     <span class="text-gray-900">About</span>
   </Breadcrumb>
-  <div class="w-full px-16">
+  <div class="w-full px-10 lg:px-16">
     <div class="w-full">
       <h3 class="text-center font-bold text-3xl text-black pt-10 uppercase">
         <span class="text-primary-500">Who</span> We Are
@@ -303,31 +291,14 @@ const history = [
   <!-- list of partners -->
   <div class="w-full pb-20 px-10 lg:px-16">
     <div class="text-center font-bold text-2xl mb-8">List of Partners</div>
-    <!-- <div class="grid grid-cols-4 gap-6"> -->
     <BrandList brands={brands} client:only="react" />
-    <!-- {
-        brands.length > 0 ? (
-          brands.map((brand) => {
-            return (
-              <div class="h-28 xl:h-32 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
-                <img src={brand.image} alt="" class:list={'object-contain h-24'} />
-              </div>
-            );
-          })
-        ) : (
-          <div class="h-28 xl:h-32 bg-white logo-box rounded-md flex flex-wrap justify-center content-center border border-gray-200">
-            <Img src={authorized2} alt="" class:list={'object-none h-24'} />
-          </div>
-        )
-      } -->
-    <!-- </div> -->
   </div>
 </Layout>
 
 <style>
   .history {
     list-style-type: none;
-    transform: rotate(270deg);
+    /*transform: rotate(270deg);*/
     position: absolute;
     bottom: -100%;
     right: 50%;
