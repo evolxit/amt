@@ -1,15 +1,26 @@
 import { useEffect, useState } from 'react';
 import ApiService from '~/services/ApiService';
 
-const queryString = window.location.search;
-const searchParams = new URLSearchParams(queryString);
-const productId = searchParams.get('product') ?? '';
-
 const ProductDetails = () => {
   const [product, setProduct] = useState();
+  const [productId, setProductId] = useState('');
+
   useEffect(() => {
-    getProduct(productId);
+    const updateProductId = () => {
+      const queryString = window.location.search;
+      const searchParams = new URLSearchParams(queryString);
+      const newProductId = searchParams.get('product') ?? '';
+      setProductId(newProductId);
+    };
+
+    updateProductId();
   }, []);
+
+  useEffect(() => {
+    if (productId !== '') {
+      getProduct(productId);
+    }
+  }, [productId]);
 
   const getProduct = async (productId) => {
     const { list } = await ApiService.getProduct(productId);
@@ -23,18 +34,20 @@ const ProductDetails = () => {
   const showVariantValues = (name, variant) => {
     if (name !== '' && name !== null) {
       return (
-        <p className="py-2">
+        <p className="py-2 ">
           <strong className="capitalize text-sm">{name}</strong>
           <br />
-          {name == 'colors'
-            ? variant.map((v, index) => (
-                <span
-                  key={index}
-                  className="inline-block w-5 -mb-1 h-5 rounded-full mr-2"
-                  style={{ backgroundColor: v }}
-                ></span>
-              ))
-            : variant.join(', ')}
+          {name == 'colors' ? (
+            variant.map((v, index) => (
+              <span
+                key={index}
+                className="inline-block w-5 -mb-1 h-5 rounded-full mr-2 "
+                style={{ backgroundColor: v }}
+              ></span>
+            ))
+          ) : (
+            <span className="text-gray-500 text-sm">{variant.join(', ')}</span>
+          )}
         </p>
       );
     }
@@ -50,7 +63,7 @@ const ProductDetails = () => {
           <div className="flex-1">
             <h1 className="mb-3 font-bold text-xl">{product.name}</h1>
             {product.price !== null && product.price > 0 ? <div>{product.price} ks</div> : ''}
-            <p>{product.description}</p>
+            <p className="text-sm text-gray-500">{product.description}</p>
 
             {getVariantKeys(product.variants).map((variantName, index) => (
               <div key={index}>
@@ -67,7 +80,7 @@ const ProductDetails = () => {
                 <p className="mb-2 font-bold">Category : </p>
                 {/* <p className="mb-2 font-bold">Tag : </p> */}
               </div>
-              <div className="w-2/3">
+              <div className="w-2/3 text-gray-500 text-sm">
                 <p className="mb-2">{product.sku}</p>
                 <p className="mb-2">{product.category}</p>
                 {/* <p className="mb-2">{product.tag} </p> */}
