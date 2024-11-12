@@ -1,12 +1,12 @@
 import newIcon from '~/assets/images/newIcon.png';
 
 const Product = ({ product }) => {
-  const productLink = '/product-detail?product=' + product.id;
+  const productLink = '/product-detail?product=' + (product.id ?? 1);
   return (
     <div className="">
       {product && (
         <div className="bg-white rounded-sm mb-5 w-full">
-          <a href="/product-detail" className="relative">
+          <a href={productLink} className="relative">
             <img
               className="rounded-t-sm w-full"
               src={product.cover_image ? product.cover_image : 'https://placehold.jp/400x400.png'}
