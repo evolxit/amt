@@ -32,9 +32,9 @@ const slides = [
       {
         slides.map((slide) => (
           <div class="slide min-w-[100%] mr-0 rounded relative">
-            <img class="rounded-lg w-full" src={slide.image} alt="" />
-            <div class="top-1 md:top-16 lg:top-24  md:left-1/4 absolute w-full block" style="z-index: 3;">
-              <div class="max-w-sm xl:max-w-md mx-auto p-10 rounded-md drop-shadow" style="background: #FFF3E3;">
+            <img class="rounded-lg w-full h-72 sm:h-auto" src={slide.image} alt="" />
+            <div class="top-1 md:top-16 lg:top-24  md:left-1/4 sm:absolute w-full" style="z-index: 3;">
+              <div class="w-full sm:max-w-sm xl:max-w-md mx-auto p-10 sm:rounded-md sm:drop-shadow" style="background: #FFF3E3;">
                 <span class="text-gray-700 text-xs block bg-opacity-0 mb-2 font-semibold" style="letter-spacing: 3px;">Featured</span>
                 <span class="text-gray-700 font-bold text-xl xl:text-3xl block bg-opacity-0 " style="line-height: 65px;">{slide.title}</span>
                 <span class="text-gray-700 block bg-opacity-0 mt-2 text-xs xl:text-lg">{slide.description}</span>
@@ -48,7 +48,7 @@ const slides = [
                 </a>
               </div>
             </div>
-          </div>
+          </div>          
         ))
       }
     </div>
