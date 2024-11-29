@@ -3,6 +3,7 @@ import { useState } from 'react';
 const ImageCarousal = ({ brands }) => {
   const [translateX, setTranslateX] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(1);
+  const docWidth = window.innerWidth;
 
   const prevSlide = () => {
     showSlide(currentIndex - 1);
@@ -12,7 +13,11 @@ const ImageCarousal = ({ brands }) => {
   };
 
   const showSlide = (index) => {
-    const totalSlides = document.querySelectorAll('.aslide').length / 4;
+    let noOfSlide = 3;
+    if (docWidth > 768) {
+      noOfSlide = 4;
+    }
+    const totalSlides = document.querySelectorAll('.aslide').length / noOfSlide;
 
     if (index >= totalSlides) {
       setCurrentIndex(0);
@@ -39,7 +44,7 @@ const ImageCarousal = ({ brands }) => {
             brands.map((brand) => (
               <a
                 href={`/products?brand=${brand.id}`}
-                className="hover:border-blue-600 aslide min-w-[24%] mr-[0.5%] ml-[0.5%] border border-gray-300 rounded-sm flex"
+                className="hover:border-blue-600 aslide min-w-[32%] md:min-w-[24%] mr-[0.5%] ml-[0.5%] border border-gray-300 rounded-sm flex"
                 key={brand.id}
               >
                 <img src={brand.image} alt="" className="m-auto object-contain rounded-sm self-center" />

@@ -102,7 +102,7 @@ const history = [
 <Layout metadata={metadata}>
   <Slider />
 
-  <div class="px-10 lg:px-16">
+  <div class="px-8 lg:px-16">
     <div class="w-full mt-10 relative" id="popular">
       <CategoryList categories={categoryList} client:only="react" />
     </div>
@@ -111,7 +111,6 @@ const history = [
       <div class="mx-auto mb-5">
         <h3 class="font-bold text-3xl text-black">Brands</h3>
       </div>
-      <!-- <BrandList brands={brands} client:only="react" /> -->
       <ImageCarousal brands={brands} client:only="react" />
     </div>
 
@@ -126,15 +125,18 @@ const history = [
             >
           </h3>
         </div>
-        <div class="w-full grid lg:grid-cols-4 md:grid-cols-2 gap-6">
+        <div class="w-full grid lg:grid-cols-4 grid-cols-2 gap-6">
           {populars.length > 0 ? populars.map((product) => <Product product={product} />) : 'No Product!'}
         </div>
       </div>
     </div>
   </div>
 
-  <div class="w-full md:flex mt-5 p-10 lg:px-16 relative justify-center about text-white" style="background: #00225D;">
-    <div class="flex-1 h-full flex content-center pr-10">
+  <div
+    class="w-full md:flex mt-5 pt-5 pb-20 md:py-10 px-8 lg:px-16 relative justify-center about text-white"
+    style="background: #00225D;"
+  >
+    <div class="md:flex-1 h-full flex content-center md:pr-10">
       <div class="h-full py-10">
         <h1 class="font-bold my-3 text-3xl">About Us</h1>
         <p class="text-sm py-3">
@@ -143,9 +145,9 @@ const history = [
         </p>
       </div>
     </div>
-    <div class="flex-1">
+    <div class="md:flex-1">
       <TextCarousal history={history} client:only="react" />
-      <a href="/about" class="text-sm inline-block mt-8 font-bold float-right">
+      <a href="/about" class="text-sm inline-block mt-2 md:mt-8 font-bold float-right">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

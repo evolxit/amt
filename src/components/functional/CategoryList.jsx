@@ -4,12 +4,13 @@ const CategoryList = ({ categories }) => {
       <div className="mx-auto mb-5">
         <h3 className="font-bold text-3xl text-black">Our Categories</h3>
       </div>
-      <div className="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10">
+      {/* <div className="w-full mx-auto grid lg:grid-cols-4 grid-cols-2 gap-4 gap-y-10"> */}
+      <div className="w-full mx-auto flex flex-auto overflow-auto">
         {categories &&
           categories.map((category) => (
             <div
               key={category.id}
-              className="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50"
+              className="relative flex flex-col text-gray-700 bg-gray-50 rounded-sm hover:bg-blue-50 mr-2 min-w-[220px]"
             >
               <div className="relative m-6 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-sm">
                 <img className="rounded-t-sm object-cover w-full" src="https://placehold.jp/400x300.png" alt="" />
