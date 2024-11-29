@@ -43,7 +43,7 @@ const testData = [
           Related Products
           <span class="text-sm font-semibold float-right hover:text-third-500 cursor-pointer">Show More</span>
         </h1>
-        <div class="w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-10 place-items-center">
+        <div class="w-full mx-auto grid lg:grid-cols-4 grid-cols-2 gap-4 gap-y-10 place-items-center">
           {
             testData.length > 0 ? (
               testData.map((product) => <Product product={product} />)

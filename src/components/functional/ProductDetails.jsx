@@ -56,11 +56,11 @@ const ProductDetails = () => {
   return (
     product && (
       <div className="">
-        <div className="flex mb-10">
-          <div className="flex-1">
-            <img src={product.coverImage ?? 'https://placehold.jp/800x600.png'} className="rounded w-[90%]" />
+        <div className="md:flex mb-10">
+          <div className="md:flex-1 mb-5 md:mb-0">
+            <img src={product.coverImage ?? 'https://placehold.jp/800x600.png'} className="rounded md:w-[90%]" />
           </div>
-          <div className="flex-1">
+          <div className="md:flex-1">
             <h1 className="mb-3 font-bold text-xl">{product.name}</h1>
             {product.price !== null && product.price > 0 ? <div>{product.price} ks</div> : ''}
             <p className="text-sm text-gray-500">{product.description}</p>

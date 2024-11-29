@@ -109,8 +109,8 @@ const ProductLayout = ({ categories, brands }) => {
 
   return (
     <>
-      <div className="flex">
-        <div className="w-1/4">
+      <div className="md:flex">
+        <div className="md:w-1/4">
           <BrandFilter brands={brands} selectedBrands={selectedBrands} onValueChange={handleBrandChange} />
           <CategoryFilter
             categories={categories}
@@ -118,7 +118,7 @@ const ProductLayout = ({ categories, brands }) => {
             selectedCategory={selectedCategory}
           />
         </div>
-        <div className="w-3/4">
+        <div className="md:w-3/4">
           <span
             onClick={clearFilter}
             className="float-right mt-5 border border-gray-200 rounded px-3 py-2 text-sm cursor-pointer hover:bg-blue-100"

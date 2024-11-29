@@ -3,9 +3,9 @@ import Product from '~/components/functional/Product';
 const ShowResult = ({ data }) => {
   return (
     <>
-      <div className="p-8 text-lg font-bold">Our Collection of Products</div>
+      <div className="pl-0 py-8 md:p-8 text-lg font-bold">Our Collection of Products</div>
 
-      <div className="pl-8">
+      <div className="md:pl-8">
         <form>
           <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">
             Search
@@ -45,7 +45,7 @@ const ShowResult = ({ data }) => {
 
         <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
       </div>
-      <div className="grid grid-cols-4 gap-4 pl-8 pt-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:pl-8 pt-8">
         {data.length > 0 ? (
           data.map((product, index) => <Product product={product} key={index} />)
         ) : (
