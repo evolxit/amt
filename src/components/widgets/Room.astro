@@ -1,0 +1,77 @@
+---
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+
+const { description = '', rooms = [], amenities = [], features = [], columns = 2 } = Astro.props;
+---
+
+<div class="w-full px-8 md:px-5">
+  <div class="w-full lg:w-9/12 mx-auto">
+    <div class="text-box text-sm text-gray-500 md:text-center lg:w-2/3 mx-auto mb-10">
+      {description}
+    </div>
+  </div>
+  <!-- <div class="lg:w-9/12 md:w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-2 place-items-center"> -->
+  {
+    rooms && (
+      <div class="lg:w-9/12 md:w-full mx-auto grid lg:grid-cols-4 md:grid-cols-2 gap-2 place-items-center">
+        {rooms.map((src) => (
+          <div class="relative shadow-lg rounded-lg cursor-pointer parent-div h-auto md:w-96 lg:w-full">
+            <img
+              style="transition: transform 0.8s ease;"
+              src={src}
+              alt=""
+              class="w-full h-auto object-cover rounded img-hover"
+            />
+          </div>
+        ))}
+      </div>
+    )
+  }
+  <!-- </div> -->
+  <div class="lg:w-9/12 mx-auto">
+    <div class="w-full lg:flex">
+      <div class="flex-1 lg:mr-5 lg:mx-0">
+        <span class="block bg-green-100 my-10 font-bold px-3 py-2 rounded">Room Amenities</span>
+        <ItemGrid
+          items={amenities}
+          columns={columns}
+          defaultIcon="tabler:check"
+          classes={{
+            container: `gap-y-1 md:gap-y-4 mb-10`,
+            panel: 'max-w-none text-gray-500',
+            title: 'text-sm font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            description: 'text-sm dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2 ',
+            icon: 'flex h-5 w-5 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 px-1',
+            action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+          }}
+        />
+      </div>
+      <div class="flex-1 lg:ml-5 lg:mx-0">
+        <span class="block bg-green-100 my-10 font-bold px-3 py-2 rounded">Room Features</span>
+        <ItemGrid
+          items={features}
+          columns={1}
+          defaultIcon="tabler:check"
+          classes={{
+            container: `gap-y-1 md:gap-y-4 mb-10`,
+            panel: 'max-w-none text-gray-500',
+            title: 'text-sm font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+            description: 'text-sm dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2 ',
+            icon: 'flex h-5 w-5 items-center justify-center rounded bg-blue-600 dark:bg-blue-700 text-gray-50 px-1',
+            action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+          }}
+        />
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .parent-div:hover .img-hover {
+      transform: scale(1.3);
+    }
+    .parent-div {
+      overflow: hidden;
+      position: relative;
+    }
+  </style>
+</div>

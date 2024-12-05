@@ -1,0 +1,38 @@
+---
+const { room = [] } = Astro.props;
+---
+
+<div class="max-w-sm relative shadow-lg rounded-lg cursor-pointer parent-div h-80 md:w-64">
+  {
+    room && (
+      <>
+        <img
+          style="transition: transform 0.8s ease;"
+          src={room.photos[0] || '/resized/101-indoor.jpg'}
+          alt=""
+          class="w-full h-auto object-cover rounded-lg rounded-b-none img-hover"
+        />
+        <a
+          href="https://web.archive.org/web/20230929034233/https://mmhs.mmhotelsystem.com/?a=main&hid=99&cust=Pine%20Hill%20Resort"
+          target="_blank"
+          class="absolute inline-block bg-primary-500 text-white px-3 py-2 rounded text-xs drop-shadow-sm hover:bg-primary-600"
+          style="top:100px; margin-left:100px"
+        >
+          BOOK NOW
+        </a>
+        <div class="absolute bottom-0 text-sm left-0 right-0 h-40 backdrop-blur p-4 py-8 bg-gray-200 rounded-b-lg text-gray-600">
+          <a href="/superior">
+            <h1 class="text-lg font-semibold text-center text-primary-500">{room.name}</h1>
+          </a>
+
+          <span class="mt-2 block">
+            <span class="font-bold">Room Types</span>: {room.types}
+          </span>
+          <span class="mt-2 block">
+            <span class="font-bold">No. of Room</span>: {room.no_of_rooms} Rooms
+          </span>
+        </div>
+      </>
+    )
+  }
+</div>

@@ -1,0 +1,122 @@
+---
+
+const bannerImg = 'https://placehold.jp/1440x600.png';
+const slides = [
+  {
+    id: 1,
+    image: bannerImg,
+    title: 'Ingenuity Precision Cutter Pro',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  },
+  {
+    id: 2,
+    image: bannerImg,
+    title: 'Ingenuity Precision Cutter Pro',
+    description:
+      'Consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  },
+  {
+    id: 3,
+    image: bannerImg,
+    title: 'Ingenuity Precision Cutter Pro',
+    description:
+      'Adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.',
+  },
+];
+---
+
+<div class="w-full relative">
+  <div class="slider w-full bg-gray-400">
+    <div class="slides">
+      {
+        slides.map((slide) => (
+          <div class="slide min-w-[100%] mr-0 rounded relative">
+            <img class="rounded-lg w-full h-72 sm:h-auto" src={slide.image} alt="" />
+            <div class="top-1 md:top-16 lg:top-24  md:left-1/4 sm:absolute w-full" style="z-index: 3;">
+              <div class="w-full sm:max-w-sm xl:max-w-md mx-auto p-10 sm:rounded-md sm:drop-shadow" style="background: #FFF3E3;">
+                <span class="text-gray-700 text-xs block bg-opacity-0 mb-2 font-semibold" style="letter-spacing: 3px;">Featured</span>
+                <span class="text-gray-700 font-bold text-xl xl:text-3xl block bg-opacity-0 " style="line-height: 65px;">{slide.title}</span>
+                <span class="text-gray-700 block bg-opacity-0 mt-2 text-xs xl:text-lg">{slide.description}</span>
+
+                <a
+                  href=`/product-detail?product=${slide.id}`
+                  target="_blank"
+                  class="inline-block text-xs xl:text-lg text-center px-5 py-3 rounded bg-third-900 text-white font-bold mt-5 xl:mt-10 mx-auto cursor-pointer hover:bg-primary-600"
+                >
+                  View Item
+                </a>
+              </div>
+            </div>
+          </div>          
+        ))
+      }
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+  </div>
+</div>
+
+<script>
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    if (index >= totalSlides) {
+      currentIndex = 0; // Loop back to the first slide
+    } else if (index < 0) {
+      currentIndex = totalSlides - 1; // Loop back to the last slide
+    } else {
+      currentIndex = index;
+    }
+
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  setInterval(() => {
+    nextSlide();
+  }, 3000);
+</script>
+
+<style>
+  /* Slider */
+  .slider {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+  }
+
+  /* Navigation buttons */
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+</style>
