@@ -60,8 +60,8 @@ const slides = [
 <script>
   let currentIndex = 0;
 
-  function showSlide(index) {
-    const slides = document.querySelector('.slides');
+  function showSlide(index: any) {
+    const slides = document.querySelector<HTMLElement>('.slides');
     const totalSlides = document.querySelectorAll('.slide').length;
 
     if (index >= totalSlides) {
@@ -72,7 +72,9 @@ const slides = [
       currentIndex = index;
     }
 
-    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if(slides){
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
   }
 
   function nextSlide() {
