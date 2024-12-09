@@ -1,14 +1,14 @@
 ---
-import CategoryList from '~/components/functional/CategoryList';
-import ImageCarousal from '~/components/functional/ImageCarousal.jsx';
-import Product from '~/components/functional/Product';
-import TextCarousal from '~/components/functional/TextCarousal';
-import Slider from '~/components/ui/Slider.astro';
-import Layout from '~/layouts/PageLayout.astro';
-import ApiService from '~/services/ApiService';
+import CategoryList from "~/components/functional/CategoryList";
+import ImageCarousal from "~/components/functional/ImageCarousal.jsx";
+import Product from "~/components/functional/Product";
+import TextCarousal from "~/components/functional/TextCarousal";
+import Slider from "~/components/ui/Slider.astro";
+import Layout from "~/layouts/PageLayout.astro";
+import ApiService from "~/services/ApiService";
 
 const metadata = {
-  title: 'AMT',
+  title: "AMT",
   ignoreTitleTemplate: true,
 };
 
@@ -24,77 +24,80 @@ const brands = brandData.list;
 const history = [
   {
     id: 1,
-    year: '2006',
-    title: 'Invest in others founded',
+    year: "2006",
+    title: "Invest in others founded",
     description:
-      'Culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.',
+      "Culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.",
   },
   {
     id: 2,
-    year: '2007',
-    title: 'Invest in others founded',
+    year: "2007",
+    title: "Invest in others founded",
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.',
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.",
   },
   {
     id: 3,
-    year: '2008',
-    title: 'Invest in others founded',
-    description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+    year: "2008",
+    title: "Invest in others founded",
+    description:
+      "Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!",
   },
   {
     id: 4,
-    year: '2009',
-    title: 'Invest in others founded',
+    year: "2009",
+    title: "Invest in others founded",
     description:
-      'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+      "Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!",
   },
   {
     id: 5,
-    year: '2018',
-    title: 'Invest in others founded',
+    year: "2018",
+    title: "Invest in others founded",
     description:
-      'Culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+      "Culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!",
   },
   {
     id: 6,
-    year: '2019',
-    title: 'Invest in others founded',
+    year: "2019",
+    title: "Invest in others founded",
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.',
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit.",
   },
   {
     id: 7,
-    year: '2020',
-    title: 'Invest in others founded',
-    description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+    year: "2020",
+    title: "Invest in others founded",
+    description:
+      "Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!",
   },
   {
     id: 8,
-    year: '2021',
-    title: 'Invest in others founded',
+    year: "2021",
+    title: "Invest in others founded",
     description:
-      'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+      "Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!",
   },
   {
     id: 9,
-    year: '2022',
-    title: 'Invest in others founded',
-    description: 'Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+    year: "2022",
+    title: "Invest in others founded",
+    description:
+      "Eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!",
   },
   {
     id: 10,
-    year: '2023',
-    title: 'Invest in others founded',
+    year: "2023",
+    title: "Invest in others founded",
     description:
-      'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+      "Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!",
   },
   {
     id: 11,
-    year: '2024',
-    title: 'Invest in others founded',
+    year: "2024",
+    title: "Invest in others founded",
     description:
-      'Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!',
+      "Fugit ipsum minima, culpa architecto ducimus quasi incidunt suscipit voluptates eligendi cupiditate voluptatum facere dolores animi libero, error hic laborum sit. Debitis!",
   },
 ];
 ---
@@ -126,7 +129,11 @@ const history = [
           </h3>
         </div>
         <div class="w-full grid lg:grid-cols-4 grid-cols-2 gap-6">
-          {populars.length > 0 ? populars.map((product) => <Product product={product} />) : 'No Product!'}
+          {
+            populars.length > 0
+              ? populars.map((product: any) => <Product product={product} />)
+              : "No Product!"
+          }
         </div>
       </div>
     </div>
@@ -140,14 +147,18 @@ const history = [
       <div class="h-full py-10">
         <h1 class="font-bold my-3 text-3xl">About Us</h1>
         <p class="text-sm py-3">
-          Aung Myittar Co.Ltd is a stationery writing tool manufacturing company. We established our companies in 1992
-          by importing semi-finished products and doing assembly at Myanmar.
+          Aung Myittar Co.Ltd is a stationery writing tool manufacturing
+          company. We established our companies in 1992 by importing
+          semi-finished products and doing assembly at Myanmar.
         </p>
       </div>
     </div>
     <div class="md:flex-1">
       <TextCarousal history={history} client:only="react" />
-      <a href="/about" class="text-sm inline-block mt-2 md:mt-8 font-bold float-right">
+      <a
+        href="/about"
+        class="text-sm inline-block mt-2 md:mt-8 font-bold float-right"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -156,7 +167,10 @@ const history = [
           stroke="currentColor"
           class="w-4 h-4 inline"
         >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
         </svg>
 
         More</a
