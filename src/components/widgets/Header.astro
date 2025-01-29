@@ -3,9 +3,12 @@ import { Icon } from "astro-icon/components";
 import Logo from "~/components/Logo.astro";
 import ToggleMenu from "~/components/common/ToggleMenu.astro";
 import SearchBox from "~/components/functional/SearchBox";
+import { getLangFromUrl, useTranslations } from "~/i18n/utils";
 
 import type { CallToAction } from "~/types";
 import { getHomePermalink, trimSlash } from "~/utils/permalinks";
+
+import { languages } from "~/i18n/ui";
 
 interface Link {
   text?: string;
@@ -41,6 +44,9 @@ const {
   showToggleTheme = false,
   position = "center",
 } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
@@ -115,7 +121,7 @@ if (Astro.request.method === "POST") {
                     type="button"
                     class="hover:text-link px-4 py-3 flex items-center"
                   >
-                    {text}{" "}
+                    {t(`nav.${text}`)}{" "}
                     <Icon
                       name="tabler:chevron-down"
                       class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline"
@@ -129,7 +135,7 @@ if (Astro.request.method === "POST") {
                             "first:rounded-t last:rounded-b hover:text-link hover:bg-slate-200 py-2 px-5 block whitespace-no-wrap",
                             { "aw-link-active": href2 === currentPath },
                           ]}
-                          href={href2}
+                          href={`${href2}`}
                         >
                           {text2}
                         </a>
@@ -143,9 +149,9 @@ if (Astro.request.method === "POST") {
                     "hover:text-link hover:text-primary-600 px-4 py-3 flex items-center",
                     { "aw-link-active": href === currentPath },
                   ]}
-                  href={href}
+                  href={`${lang}/${href}`}
                 >
-                  {text}
+                  {t(`nav.${text}`)}
                 </a>
               )}
             </li>
@@ -165,26 +171,20 @@ if (Astro.request.method === "POST") {
           <ul
             class="dropdown-menu md:backdrop-blur-md rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
           >
-            <li>
-              <a
-                class:list={[
-                  "first:rounded-t last:rounded-b hover:text-link hover:bg-slate-200 py-2 px-5 block whitespace-no-wrap",
-                ]}
-                href="#"
-              >
-                English
-              </a>
-            </li>
-            <li>
-              <a
-                class:list={[
-                  "first:rounded-t last:rounded-b hover:text-link hover:bg-slate-200 py-2 px-5 block whitespace-no-wrap",
-                ]}
-                href="#"
-              >
-                Myanmar
-              </a>
-            </li>
+            {
+              Object.entries(languages).map(([lang, label]) => (
+                <li>
+                  <a
+                    class:list={[
+                      "first:rounded-t last:rounded-b hover:text-link hover:bg-slate-200 py-2 px-5 block whitespace-no-wrap",
+                    ]}
+                    href={`/${lang}/`}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </li>
       </ul>
@@ -196,39 +196,6 @@ if (Astro.request.method === "POST") {
       ]}
     >
       <SearchBox client:only="react" />
-
-      <!-- <div class="items-center flex justify-between w-full md:w-auto">
-        <div class="flex">
-          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
-          {
-            showRssFeed && (
-              <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                aria-label="RSS Feed"
-                href={getAsset('/rss.xml')}
-              >
-                <Icon name="tabler:rss" class="w-5 h-5" />
-              </a>
-            )
-          }
-        </div>
-        {
-          actions?.length ? (
-            <span class="ml-4 rtl:ml-0 rtl:mr-4">
-              {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
-              ))}
-            </span>
-          ) : (
-            ''
-          )
-        }
-      </div> -->
     </div>
   </div>
-
-  <!-- <div class="border border-x-0 border-gray-200 px-10 py-3 breadcrumb relative">
-    <div class="">Home</div>
-  </div> -->
-  <!-- <Breadcrumb>Product</Breadcrumb> -->
 </header>
