@@ -11,6 +11,13 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  i18n: {
+    locales: ["en", "mm"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [react(), tailwind(), icon()],
   output: "server",
   adapter: node({
