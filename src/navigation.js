@@ -1,5 +1,5 @@
-import ApiService from './services/ApiService';
-import { getPermalink } from './utils/permalinks';
+import ApiService from "./services/ApiService";
+import { getPermalink } from "./utils/permalinks";
 
 const categoryData = await ApiService.getCategories();
 const categoryList = categoryData.list;
@@ -7,12 +7,12 @@ const categoryList = categoryData.list;
 const getLinks = () => {
   let links = [
     {
-      text: 'All Products',
-      href: getPermalink('products'),
+      text: "All Products",
+      href: getPermalink("products"),
     },
     ...categoryList.map((category) => ({
       text: category.name,
-      href: '/products?category=' + category.id,
+      href: "/products?category=" + category.id,
     })),
   ];
 
@@ -22,87 +22,86 @@ const getLinks = () => {
 export const headerData = {
   links: [
     {
-      text: 'Home',
-      href: '/',
+      text: "home",
+      href: "/",
     },
     {
-      text: 'Products',
-
+      text: "products",
       links: getLinks(),
     },
     {
-      text: 'About',
-      href: getPermalink('/about'),
+      text: "about",
+      href: getPermalink("/about"),
     },
 
     {
-      text: 'Contact',
-      href: getPermalink('/contact'),
+      text: "contact",
+      href: getPermalink("/contact"),
     },
 
     {
-      text: 'Blog',
-      href: getPermalink('/blogs'),
+      text: "blog",
+      href: getPermalink("/blogs"),
     },
 
     {
-      text: 'Documents',
-      href: getPermalink('/documents'),
+      text: "documents",
+      href: getPermalink("/documents"),
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
+  actions: [],
 };
 
 export const footerData = {
   links: [
     {
-      title: '',
+      title: "",
       links: [
-        { text: 'Home', href: getPermalink('/') },
-        { text: 'About', href: getPermalink('/about') },
-        { text: 'Contact', href: getPermalink('/contact') },
+        { text: "Home", href: getPermalink("/") },
+        { text: "About", href: getPermalink("/about") },
+        { text: "Contact", href: getPermalink("/contact") },
       ],
     },
     {
-      title: '',
+      title: "",
       links: [
-        { text: 'Programs', href: getPermalink('/programs') },
-        { text: 'Activity', href: getPermalink('/activity') },
+        { text: "Programs", href: getPermalink("/programs") },
+        { text: "Activity", href: getPermalink("/activity") },
       ],
     },
     {
-      title: '',
+      title: "",
       links: [
-        { text: 'FAQ', href: getPermalink('/faq') },
-        { text: 'Testimonials', href: getPermalink('/reviews') },
+        { text: "FAQ", href: getPermalink("/faq") },
+        { text: "Testimonials", href: getPermalink("/reviews") },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Activity', href: getPermalink('/activity') },
-    { text: 'Testimonials', href: getPermalink('/reviews') },
+    { text: "Activity", href: getPermalink("/activity") },
+    { text: "Testimonials", href: getPermalink("/reviews") },
   ],
   socialLinks: [
     {
-      ariaLabel: 'Facebook',
-      icon: 'tabler:brand-facebook',
-      href: '#',
+      ariaLabel: "Facebook",
+      icon: "tabler:brand-facebook",
+      href: "#",
     },
     {
-      ariaLabel: 'Instagram',
-      icon: 'tabler:brand-instagram',
-      href: '#',
+      ariaLabel: "Instagram",
+      icon: "tabler:brand-instagram",
+      href: "#",
     },
     {
-      ariaLabel: 'Twitter',
-      icon: 'tabler:brand-twitter',
-      href: '#',
+      ariaLabel: "Twitter",
+      icon: "tabler:brand-twitter",
+      href: "#",
     },
     {
-      ariaLabel: 'Youtube',
-      icon: 'tabler:brand-youtube',
-      href: '#',
+      ariaLabel: "Youtube",
+      icon: "tabler:brand-youtube",
+      href: "#",
     },
   ],
-  footNote: '2024 Aung Myittar Co., Ltd. All Rights Reserved',
+  footNote: "2024 Aung Myittar Co., Ltd. All Rights Reserved",
 };
