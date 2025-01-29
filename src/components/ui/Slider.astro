@@ -1,4 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from "~/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const bannerImg = 'https://placehold.jp/1440x600.png';
 const slides = [
@@ -44,7 +48,7 @@ const slides = [
                   target="_blank"
                   class="inline-block text-xs xl:text-lg text-center px-5 py-3 rounded bg-third-900 text-white font-bold mt-5 xl:mt-10 mx-auto cursor-pointer hover:bg-primary-600"
                 >
-                  View Item
+                  {t(`slider.viewItem`)}
                 </a>
               </div>
             </div>

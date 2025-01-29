@@ -13,13 +13,16 @@ import { ViewTransitions } from "astro:transitions";
 // import { headerData } from '~/navigation';
 import type { MetaData as MetaDataType } from "~/types";
 
+import { getLangFromUrl } from "../i18n/utils";
 export interface Props {
   metadata?: MetaDataType;
 }
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html class="2xl:text-[20px]">
+<html class="2xl:text-[20px]" lang={lang}>
   <head>
     <CommonMeta />
     <Favicons />
