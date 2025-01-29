@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
-import ApiService from '~/services/ApiService';
-import BrandFilter from './BrandFilter';
-import CategoryFilter from './CategoryFilter';
-import ShowResult from './ShowResult';
+import { useEffect, useState } from "react";
+import ApiService from "~/services/ApiService";
+import BrandFilter from "./BrandFilter";
+import CategoryFilter from "./CategoryFilter";
+import ShowResult from "./ShowResult";
 
 const ProductLayout = ({ categories, brands }) => {
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
-  const category = searchParams.get('category') ?? '';
-  const brand = searchParams.get('brand') ?? '';
+  const category = searchParams.get("category") ?? "";
+  const brand = searchParams.get("brand") ?? "";
+  const query = searchParams.get("query") ?? "";
 
   const setBrandDefault = () => {
     let defaultValue = {};
@@ -21,20 +22,26 @@ const ProductLayout = ({ categories, brands }) => {
     return defaultValue;
   };
 
-  const [selectedCategory, setSelectedCategory] = useState({ id: '', name: '' });
+  const [selectedCategory, setSelectedCategory] = useState({
+    id: "",
+    name: "",
+  });
   const [selectedBrands, setSelectedBrands] = useState(setBrandDefault());
   const [result, setResult] = useState([]);
 
-  const handleCategoryChange = async (value, name, type = 'state') => {
+  const handleCategoryChange = async (value, name, type = "state") => {
     let category = value;
-    if (type == 'state') {
+    if (type == "state") {
       setSelectedCategory({ id: category, name: name });
     } else {
-      setSelectedCategory({ id: '', name: '' });
-      category = '';
+      setSelectedCategory({ id: "", name: "" });
+      category = "";
     }
 
-    const { list } = await ApiService.getResult(category, getBrandIds(selectedBrands));
+    const { list } = await ApiService.getResult(
+      category,
+      getBrandIds(selectedBrands)
+    );
     setResult(list);
   };
 
@@ -54,7 +61,10 @@ const ProductLayout = ({ categories, brands }) => {
       [value]: status,
     });
 
-    const { list } = await ApiService.getResult(selectedCategory.id, getBrandIds(brands));
+    const { list } = await ApiService.getResult(
+      selectedCategory.id,
+      getBrandIds(brands)
+    );
     setResult(list);
   };
 
@@ -81,7 +91,7 @@ const ProductLayout = ({ categories, brands }) => {
       if (selected) {
         setSelectedCategory(selected);
       } else {
-        console.log('Category not found');
+        console.log("Category not found");
       }
     }
 
@@ -92,14 +102,18 @@ const ProductLayout = ({ categories, brands }) => {
       });
     }
 
-    const { list } = await ApiService.getResult(category ?? '', brand ?? []);
+    const { list } = await ApiService.getResult(
+      category ?? "",
+      brand ?? [],
+      query
+    );
     setResult(list);
   };
 
   const clearFilter = async () => {
-    setSelectedCategory({ id: '', name: '' });
+    setSelectedCategory({ id: "", name: "" });
     setSelectedBrands(setBrandDefault());
-    const { list } = await ApiService.getResult('', []);
+    const { list } = await ApiService.getResult("", []);
     setResult(list);
   };
 
@@ -111,7 +125,11 @@ const ProductLayout = ({ categories, brands }) => {
     <>
       <div className="md:flex">
         <div className="md:w-1/4">
-          <BrandFilter brands={brands} selectedBrands={selectedBrands} onValueChange={handleBrandChange} />
+          <BrandFilter
+            brands={brands}
+            selectedBrands={selectedBrands}
+            onValueChange={handleBrandChange}
+          />
           <CategoryFilter
             categories={categories}
             onValueChange={handleCategoryChange}
