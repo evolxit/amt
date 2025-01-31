@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const SearchBox = () => {
+  const [showModal, setShowModal] = useState(false);
   const [query, setQuery] = useState("");
   const handleSearch = () => {
     if (query !== "") {
@@ -8,44 +9,89 @@ const SearchBox = () => {
     }
   };
   return (
-    // https://www.creative-tim.com/twcomponents/component/search-bar-6
-    <div className="relative flex flex-col justify-center overflow-hidden">
-      <div className="relative rounded-2xl bg-white px-3 ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:px-5">
-        <div className="mx-auto max-w-md">
-          <div className="relative flex flex-row border border-third-900 rounded-full">
-            <div className="relative mx-auto w-max">
-              <input
-                type="search"
-                name="query"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="search product by name or sku"
-                className="peer cursor-pointer relative z-10 h-12 w-12 bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:pl-16 focus:pr-4"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-third-900 px-3.5 peer-focus:border-third-900 peer-focus:stroke-third-900"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
+    // https://tailwindflex.com/@eliteai-tools/modal-with-tailwind-css
+    <div>
+      <button
+        className="p-2 rounded-fullcursor-pointer"
+        onClick={() => setShowModal(true)}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="inset-y-0 my-auto h-8 w-8 border-r border-transparent stroke-third-900 hover:stroke-primary-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          ></path>
+        </svg>
+      </button>
+      {showModal && (
+        <div
+          id="modal"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+        >
+          <div className="fixed inset-0 bg-black/50"></div>
+          <div className="relative w-full max-w-md p-6 bg-white rounded-lg shadow-xl">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-900">
+                Search Box
+              </h3>
+              <button
+                id="closeModalButton"
+                className="text-gray-500 hover:text-gray-700"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                ></path>
-              </svg>
+                <svg
+                  className="h-4 w-4 inline-block ml-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  ariaHidden="true"
+                  dataSlot="icon"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
             </div>
-            <button
-              onClick={handleSearch}
-              className="inline-block text-center text-xs text-white font-bold px-4 py-2 rounded-full bg-third-900 mx-auto cursor-pointer hover:bg-primary-600"
-            >
-              Search
-            </button>
+
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="query" className="sr-only">
+                  Search
+                </label>
+                <input
+                  type="query"
+                  id="query"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-third-700 bg-white text-gray-900 placeholder-gray-400"
+                  placeholder="enter product name or sku"
+                  defaultValue={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+              </div>
+
+              <div className="flex justify-end gap-3">
+                <button
+                  onClick={handleSearch}
+                  id="submitUrlButton"
+                  className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-md bg-third-900 hover:bg-third-700"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
