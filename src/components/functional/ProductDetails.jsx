@@ -4,6 +4,7 @@ import ApiService from "~/services/ApiService";
 const ProductDetails = () => {
   const [product, setProduct] = useState();
   const [productId, setProductId] = useState("");
+  const [mainImage, setMainImage] = useState("");
 
   useEffect(() => {
     const updateProductId = () => {
@@ -24,7 +25,9 @@ const ProductDetails = () => {
 
   const getProduct = async (productId) => {
     const { list } = await ApiService.getProduct(productId);
+    // console.log("product: ", list.images.length);
     setProduct(list);
+    setMainImage(list.coverImage);
   };
 
   const getVariantKeys = (variants) => {
@@ -53,15 +56,33 @@ const ProductDetails = () => {
     }
   };
 
+  const imageClick = (path) => {
+    setMainImage(path);
+  };
+
   return (
     product && (
       <div className="">
         <div className="md:flex mb-10">
           <div className="md:flex-1 mb-5 md:mb-0">
             <img
-              src={product.coverImage ?? "https://placehold.jp/800x600.png"}
-              className="rounded md:w-[90%]"
+              src={mainImage}
+              alt="Product"
+              className="w-full md:w-[90%] h-auto rounded-lg shadow-md mb-4"
+              id="mainImage"
             />
+            <div className="flex gap-4 py-4 overflow-x-auto">
+              {product.images.length >= 1 &&
+                product.images.map((photo, index) => (
+                  <span key={index} onClick={() => imageClick(photo)}>
+                    <img
+                      src={photo}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                    />
+                  </span>
+                ))}
+            </div>
           </div>
           <div className="md:flex-1">
             <h1 className="mb-3 font-bold text-xl">{product.name}</h1>
