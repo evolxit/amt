@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
-import ApiService from '~/services/ApiService';
+import { useEffect, useState } from "react";
+import ApiService from "~/services/ApiService";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState();
-  const [productId, setProductId] = useState('');
+  const [productId, setProductId] = useState("");
+  const [mainImage, setMainImage] = useState("");
 
   useEffect(() => {
     const updateProductId = () => {
       const queryString = window.location.search;
       const searchParams = new URLSearchParams(queryString);
-      const newProductId = searchParams.get('product') ?? '';
+      const newProductId = searchParams.get("product") ?? "";
       setProductId(newProductId);
     };
 
@@ -17,14 +18,16 @@ const ProductDetails = () => {
   }, []);
 
   useEffect(() => {
-    if (productId !== '') {
+    if (productId !== "") {
       getProduct(productId);
     }
   }, [productId]);
 
   const getProduct = async (productId) => {
     const { list } = await ApiService.getProduct(productId);
+    // console.log("product: ", list.images.length);
     setProduct(list);
+    setMainImage(list.coverImage);
   };
 
   const getVariantKeys = (variants) => {
@@ -32,12 +35,12 @@ const ProductDetails = () => {
   };
 
   const showVariantValues = (name, variant) => {
-    if (name !== '' && name !== null) {
+    if (name !== "" && name !== null) {
       return (
         <p className="py-2 ">
           <strong className="capitalize text-sm">{name}</strong>
           <br />
-          {name == 'colors' ? (
+          {name == "colors" ? (
             variant.map((v, index) => (
               <span
                 key={index}
@@ -46,11 +49,15 @@ const ProductDetails = () => {
               ></span>
             ))
           ) : (
-            <span className="text-gray-500 text-sm">{variant.join(', ')}</span>
+            <span className="text-gray-500 text-sm">{variant.join(", ")}</span>
           )}
         </p>
       );
     }
+  };
+
+  const imageClick = (path) => {
+    setMainImage(path);
   };
 
   return (
@@ -58,12 +65,38 @@ const ProductDetails = () => {
       <div className="">
         <div className="md:flex mb-10">
           <div className="md:flex-1 mb-5 md:mb-0">
-            <img src={product.coverImage ?? 'https://placehold.jp/800x600.png'} className="rounded md:w-[90%]" />
+            <img
+              src={mainImage}
+              alt="Product"
+              className="w-full md:w-[90%] h-auto rounded-lg shadow-md mb-4"
+              id="mainImage"
+            />
+            <div className="flex gap-4 py-4 overflow-x-auto">
+              {product.images.length >= 1 &&
+                product.images.map((photo, index) => (
+                  <span key={index} onClick={() => imageClick(photo)}>
+                    <img
+                      src={photo}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                    />
+                  </span>
+                ))}
+            </div>
           </div>
           <div className="md:flex-1">
             <h1 className="mb-3 font-bold text-xl">{product.name}</h1>
-            {product.price !== null && product.price > 0 ? <div>{product.price} ks</div> : ''}
-            <p className="text-sm text-gray-500">{product.description}</p>
+            {product.price !== null && product.price > 0 ? (
+              <div>{product.price} ks</div>
+            ) : (
+              ""
+            )}
+            <p
+              className="text-sm text-gray-500 my-3"
+              style={{ whiteSpace: "pre-line" }}
+            >
+              {product.description}
+            </p>
 
             {getVariantKeys(product.variants).map((variantName, index) => (
               <div key={index}>
@@ -97,11 +130,6 @@ const ProductDetails = () => {
           className="w-full mb-5 rounded-sm"
           allowFullScreen
         ></iframe>
-
-        <div>
-          <h1 className="font-semibold text-lg my-3 underline">Description</h1>
-          <p className="text-sm text-gray-500">{product.description}</p>
-        </div>
       </div>
     )
   );
