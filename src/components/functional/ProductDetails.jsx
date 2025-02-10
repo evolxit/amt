@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
-import ApiService from '~/services/ApiService';
+import { useEffect, useState } from "react";
+import ApiService from "~/services/ApiService";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState();
-  const [productId, setProductId] = useState('');
+  const [productId, setProductId] = useState("");
 
   useEffect(() => {
     const updateProductId = () => {
       const queryString = window.location.search;
       const searchParams = new URLSearchParams(queryString);
-      const newProductId = searchParams.get('product') ?? '';
+      const newProductId = searchParams.get("product") ?? "";
       setProductId(newProductId);
     };
 
@@ -17,7 +17,7 @@ const ProductDetails = () => {
   }, []);
 
   useEffect(() => {
-    if (productId !== '') {
+    if (productId !== "") {
       getProduct(productId);
     }
   }, [productId]);
@@ -32,12 +32,12 @@ const ProductDetails = () => {
   };
 
   const showVariantValues = (name, variant) => {
-    if (name !== '' && name !== null) {
+    if (name !== "" && name !== null) {
       return (
         <p className="py-2 ">
           <strong className="capitalize text-sm">{name}</strong>
           <br />
-          {name == 'colors' ? (
+          {name == "colors" ? (
             variant.map((v, index) => (
               <span
                 key={index}
@@ -46,7 +46,7 @@ const ProductDetails = () => {
               ></span>
             ))
           ) : (
-            <span className="text-gray-500 text-sm">{variant.join(', ')}</span>
+            <span className="text-gray-500 text-sm">{variant.join(", ")}</span>
           )}
         </p>
       );
@@ -58,12 +58,24 @@ const ProductDetails = () => {
       <div className="">
         <div className="md:flex mb-10">
           <div className="md:flex-1 mb-5 md:mb-0">
-            <img src={product.coverImage ?? 'https://placehold.jp/800x600.png'} className="rounded md:w-[90%]" />
+            <img
+              src={product.coverImage ?? "https://placehold.jp/800x600.png"}
+              className="rounded md:w-[90%]"
+            />
           </div>
           <div className="md:flex-1">
             <h1 className="mb-3 font-bold text-xl">{product.name}</h1>
-            {product.price !== null && product.price > 0 ? <div>{product.price} ks</div> : ''}
-            <p className="text-sm text-gray-500">{product.description}</p>
+            {product.price !== null && product.price > 0 ? (
+              <div>{product.price} ks</div>
+            ) : (
+              ""
+            )}
+            <p
+              className="text-sm text-gray-500 my-3"
+              style={{ whiteSpace: "pre-line" }}
+            >
+              {product.description}
+            </p>
 
             {getVariantKeys(product.variants).map((variantName, index) => (
               <div key={index}>
@@ -97,11 +109,6 @@ const ProductDetails = () => {
           className="w-full mb-5 rounded-sm"
           allowFullScreen
         ></iframe>
-
-        <div>
-          <h1 className="font-semibold text-lg my-3 underline">Description</h1>
-          <p className="text-sm text-gray-500">{product.description}</p>
-        </div>
       </div>
     )
   );
