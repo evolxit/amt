@@ -43,7 +43,8 @@ const SearchBox = () => {
               </h3>
               <button
                 id="closeModalButton"
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-700 hover:text-gray-900"
+                onClick={() => setShowModal(false)}
               >
                 <svg
                   className="h-4 w-4 inline-block ml-2"
