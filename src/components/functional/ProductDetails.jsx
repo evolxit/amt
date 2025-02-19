@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ApiService from "~/services/ApiService";
 
-const ProductDetails = () => {
+const ProductDetails = ({ lang = "en" }) => {
   const [product, setProduct] = useState();
   const [productId, setProductId] = useState("");
   const [mainImage, setMainImage] = useState("");
@@ -25,7 +25,6 @@ const ProductDetails = () => {
 
   const getProduct = async (productId) => {
     const { list } = await ApiService.getProduct(productId);
-    // console.log("product: ", list.images.length);
     setProduct(list);
     setMainImage(list.coverImage);
   };
@@ -36,22 +35,16 @@ const ProductDetails = () => {
 
   const showVariantValues = (name, variant) => {
     if (name !== "" && name !== null) {
-      return (
-        <p className="py-2 ">
-          <strong className="capitalize text-sm">{name}</strong>
-          <br />
-          {name == "colors" ? (
-            variant.map((v, index) => (
-              <span
-                key={index}
-                className="inline-block w-5 -mb-1 h-5 rounded-full mr-2 "
-                style={{ backgroundColor: v }}
-              ></span>
-            ))
-          ) : (
-            <span className="text-gray-500 text-sm">{variant.join(", ")}</span>
-          )}
-        </p>
+      return name == "colors" ? (
+        variant.map((v, index) => (
+          <span
+            key={index}
+            className="inline-block w-5 -mb-1 h-5 rounded-full mr-2 "
+            style={{ backgroundColor: v }}
+          ></span>
+        ))
+      ) : (
+        <span className="text-gray-500 text-sm">{variant.join(", ")}</span>
       );
     }
   };
@@ -62,7 +55,7 @@ const ProductDetails = () => {
 
   return (
     product && (
-      <div className="">
+      <div className="mt-4">
         <div className="md:flex mb-10">
           <div className="md:flex-1 mb-5 md:mb-0">
             <img
@@ -85,7 +78,10 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="md:flex-1">
-            <h1 className="mb-3 font-bold text-xl">{product.name}</h1>
+            <p className="font-light text-sm">{product.category}</p>
+            <h1 className="mb-3 font-bold text-xl">
+              {product.sku} | {lang === "en" ? product.name : product.name_my}
+            </h1>
             {product.price !== null && product.price > 0 ? (
               <div>{product.price} ks</div>
             ) : (
@@ -95,41 +91,40 @@ const ProductDetails = () => {
               className="text-sm text-gray-500 my-3"
               style={{ whiteSpace: "pre-line" }}
             >
-              {product.description}
+              {lang === "en" ? product.description : product.description_my}
             </p>
-
-            {getVariantKeys(product.variants).map((variantName, index) => (
-              <div key={index}>
-                {/* <p>
-                  Key: {variantName} : Value: {JSON.stringify(product.variants[variantName] ?? {})}
-                </p> */}
-                {showVariantValues(variantName, product.variants[variantName])}
-              </div>
-            ))}
-
-            <div className="flex my-5 border-t-2 border-t-gray-400 pt-5">
-              <div className="w-1/3">
-                <p className="mb-2 font-bold">SKU : </p>
-                <p className="mb-2 font-bold">Category : </p>
-                {/* <p className="mb-2 font-bold">Tag : </p> */}
-              </div>
-              <div className="w-2/3 text-gray-500 text-sm">
-                <p className="mb-2">{product.sku}</p>
-                <p className="mb-2">{product.category}</p>
-                {/* <p className="mb-2">{product.tag} </p> */}
-              </div>
-            </div>
+            <table className="w-full">
+              <tbody>
+                {getVariantKeys(product.variants).map((variantName, index) => (
+                  <tr className="p-4" key={index}>
+                    <td>
+                      <strong className="capitalize text-sm">
+                        {variantName}
+                      </strong>
+                    </td>
+                    <td>
+                      {showVariantValues(
+                        variantName,
+                        product.variants[variantName]
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
-        <iframe
-          height="315"
-          src="https://www.youtube-nocookie.com/embed/DaxL4gYwUrU"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-          className="w-full mb-5 rounded-sm"
-          allowFullScreen
-        ></iframe>
+        {product.video !== null && (
+          <iframe
+            height="315"
+            src={product.video}
+            title={product.name}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+            className="w-full mb-5 rounded-sm"
+            allowFullScreen
+          ></iframe>
+        )}
       </div>
     )
   );

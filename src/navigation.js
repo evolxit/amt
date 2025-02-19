@@ -7,12 +7,12 @@ const categoryList = categoryData.list;
 const getLinks = () => {
   let links = [
     {
-      text: "All Products",
-      href: getPermalink("products"),
+      text: `All Products`,
+      href: getPermalink("/products"),
     },
     ...categoryList.map((category) => ({
       text: category.name,
-      href: "/products?category=" + category.id,
+      href: getPermalink("/products") + "?category=" + category.id,
     })),
   ];
 
@@ -33,7 +33,6 @@ export const headerData = {
       text: "about",
       href: getPermalink("/about"),
     },
-
     {
       text: "contact",
       href: getPermalink("/contact"),

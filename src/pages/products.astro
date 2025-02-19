@@ -1,11 +1,11 @@
 ---
-import ProductLayout from '~/components/functional/ProductLayout';
-import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
-import Layout from '~/layouts/PageLayout.astro';
-import ApiService from '~/services/ApiService';
+import ProductLayout from "~/components/functional/ProductLayout";
+import Breadcrumb from "~/components/widgets/Breadcrumb.astro";
+import Layout from "~/layouts/PageLayout.astro";
+import ApiService from "~/services/ApiService";
 
 const metadata = {
-  title: 'Products',
+  title: "Products",
   items: [],
 };
 
@@ -29,13 +29,16 @@ const cat = categoryData.list;
       stroke="currentColor"
       class="size-4 inline"
     >
-      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
     </svg>
     <span class="text-gray-900">Products</span>
   </Breadcrumb>
 
   <!-- component -->
-  <div class="w-full px-8 lg:px-16 pb-20">
+  <div class="px-8 lg:px-16">
     <ProductLayout categories={cat} brands={brands} client:only="react" />
   </div>
 </Layout>

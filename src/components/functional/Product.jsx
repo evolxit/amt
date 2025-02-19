@@ -1,7 +1,11 @@
 import newIcon from "~/assets/images/newIcon.png";
 
-const Product = ({ product }) => {
-  const productLink = "/product-detail?product=" + (product.id ?? 1);
+const Product = ({ lang = "en", product }) => {
+  let productLink = `product-detail?product=${product.id ?? 1}`;
+  if (lang !== "en") {
+    productLink = `${lang}/${productLink}`;
+  }
+  productLink = `/${productLink}`;
   return (
     <div className="">
       {product && (
@@ -34,7 +38,7 @@ const Product = ({ product }) => {
                 href={productLink}
                 className="text-third-500 text-sm font-semibold hover:text-third-400"
               >
-                {product.name}
+                {lang !== "en" ? product.name_my : product.name}
               </a>
               <br />
               <span className=" text-gray-500">{product.category}</span>

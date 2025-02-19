@@ -4,7 +4,7 @@ import BrandFilter from "./BrandFilter";
 import CategoryFilter from "./CategoryFilter";
 import ShowResult from "./ShowResult";
 
-const ProductLayout = ({ categories, brands }) => {
+const ProductLayout = ({ lang = 'en', categories, brands }) => {
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
   const category = searchParams.get("category") ?? "";
@@ -157,7 +157,7 @@ const ProductLayout = ({ categories, brands }) => {
             </svg>
             Clear All
           </span>
-          <ShowResult data={result} />
+          <ShowResult lang={lang} data={result} />
         </div>
       </div>
     </>
