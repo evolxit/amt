@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import ApiService from "~/services/ApiService";
+import Product from "./Product";
 
 const ProductDetails = ({ lang = "en" }) => {
   const [product, setProduct] = useState();
   const [productId, setProductId] = useState("");
   const [mainImage, setMainImage] = useState("");
+  const [related, setRelated] = useState(null);
 
   useEffect(() => {
     const updateProductId = () => {
@@ -24,8 +26,9 @@ const ProductDetails = ({ lang = "en" }) => {
   }, [productId]);
 
   const getProduct = async (productId) => {
-    const { list } = await ApiService.getProduct(productId);
+    const { list, related_list } = await ApiService.getProduct(productId);
     setProduct(list);
+    setRelated(related_list);
     setMainImage(list.coverImage);
   };
 
@@ -124,6 +127,22 @@ const ProductDetails = ({ lang = "en" }) => {
             className="w-full mb-5 rounded-sm"
             allowFullScreen
           ></iframe>
+        )}
+
+        {related.length > 0 && (
+          <div class="pt-10">
+            <h1 class="font-bold text-xl my-3">
+              Related Products
+              {/* <span class="text-sm font-semibold float-right hover:text-third-500 cursor-pointer">
+                Show More
+              </span> */}
+            </h1>
+            <div class="w-full mx-auto grid lg:grid-cols-4 grid-cols-2 gap-4 gap-y-10 place-items-center">
+              {related.map((item, index) => (
+                <Product product={item} key={index} />
+              ))}
+            </div>
+          </div>
         )}
       </div>
     )
