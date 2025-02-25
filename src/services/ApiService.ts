@@ -21,12 +21,13 @@ async function getProducts() {
   return await response.json();
 }
 
-async function getResult(category, brands, searchkey) {
+async function getResult(category, brands, page, searchkey) {
   const requestOptions = buildRequest("GET");
   const url = buildUrl("/v1/search", {
     category: category,
     brands: brands,
     searchkey: searchkey,
+    page: page,
   });
   const response = await fetch(url, requestOptions);
   return await response.json();

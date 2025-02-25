@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     /* font-family: Poppins, Arial, Helvetica, sans-serif; */
   }
 }
@@ -120,4 +120,12 @@
 
 .shadow-text-light {
   text-shadow: 2px 2px 5px rgb(255, 248, 215);
+}
+
+.pagination-btn {
+  @apply relative flex items-center justify-center text-sm min-w-[2rem] px-1.5 h-8 -my-3 rounded-md outline-none transition ring-2 ring-yellow-500;
+}
+.active,
+.pagination-btn:hover {
+  @apply bg-primary-500 text-white;
 }

@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import ApiService from "~/services/ApiService";
 import BrandFilter from "./BrandFilter";
 import CategoryFilter from "./CategoryFilter";
+import Pagination from "./Pagination";
 import ShowResult from "./ShowResult";
 
-const ProductLayout = ({ lang = 'en', categories, brands }) => {
+const ProductLayout = ({ lang = "en", categories, brands }) => {
   const queryString = window.location.search;
   const searchParams = new URLSearchParams(queryString);
   const category = searchParams.get("category") ?? "";
@@ -28,6 +29,8 @@ const ProductLayout = ({ lang = 'en', categories, brands }) => {
   });
   const [selectedBrands, setSelectedBrands] = useState(setBrandDefault());
   const [result, setResult] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
 
   const handleCategoryChange = async (value, name, type = "state") => {
     let category = value;
@@ -38,11 +41,14 @@ const ProductLayout = ({ lang = 'en', categories, brands }) => {
       category = "";
     }
 
-    const { list } = await ApiService.getResult(
+    const { list, pagination } = await ApiService.getResult(
       category,
-      getBrandIds(selectedBrands)
+      getBrandIds(selectedBrands),
+      currentPage
     );
     setResult(list);
+    setCurrentPage(pagination.current_page);
+    setTotalPage(pagination.last_page);
   };
 
   const getBrandIds = (brands) => {
@@ -61,11 +67,14 @@ const ProductLayout = ({ lang = 'en', categories, brands }) => {
       [value]: status,
     });
 
-    const { list } = await ApiService.getResult(
+    const { list, pagination } = await ApiService.getResult(
       selectedCategory.id,
-      getBrandIds(brands)
+      getBrandIds(brands),
+      currentPage
     );
     setResult(list);
+    setCurrentPage(pagination.current_page);
+    setTotalPage(pagination.last_page);
   };
 
   const initializePage = async (category, brand) => {
@@ -105,6 +114,7 @@ const ProductLayout = ({ lang = 'en', categories, brands }) => {
     const { list } = await ApiService.getResult(
       category ?? "",
       brand ?? [],
+      currentPage,
       query
     );
     setResult(list);
@@ -158,6 +168,7 @@ const ProductLayout = ({ lang = 'en', categories, brands }) => {
             Clear All
           </span>
           <ShowResult lang={lang} data={result} />
+          <Pagination totalPage={totalPage} currentPage={currentPage} />
         </div>
       </div>
     </>
