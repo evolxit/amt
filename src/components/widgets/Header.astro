@@ -136,7 +136,7 @@ if (Astro.request.method === "POST") {
                             "first:rounded-t last:rounded-b hover:text-link hover:bg-slate-200 py-2 px-5 block whitespace-no-wrap",
                             { "aw-link-active": href2 === currentPath },
                           ]}
-                          href={`${href2}`}
+                          href={getRelativeLocaleUrl(lang, href2)}
                         >
                           {text2}
                         </a>

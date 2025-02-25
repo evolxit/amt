@@ -1,7 +1,11 @@
-import newIcon from '~/assets/images/newIcon.png';
+import newIcon from "~/assets/images/newIcon.png";
 
-const Product = ({ product }) => {
-  const productLink = '/product-detail?product=' + (product.id ?? 1);
+const Product = ({ lang = "en", product }) => {
+  let productLink = `product-detail?product=${product.id ?? 1}`;
+  if (lang !== "en") {
+    productLink = `${lang}/${productLink}`;
+  }
+  productLink = `/${productLink}`;
   return (
     <div className="">
       {product && (
@@ -9,21 +13,32 @@ const Product = ({ product }) => {
           <a href={productLink} className="relative">
             <img
               className="rounded-t-sm w-full"
-              src={product.cover_image ? product.cover_image : 'https://placehold.jp/400x400.png'}
+              src={
+                product.coverImage
+                  ? product.coverImage
+                  : "https://placehold.jp/400x400.png"
+              }
               alt=""
             />
             {product.isNew ? (
               <span className="absolute top-0 left-0">
-                <img src={newIcon.src} alt="" className="object-fit w-12 rounded-t-sm" />
+                <img
+                  src={newIcon.src}
+                  alt=""
+                  className="object-fit w-12 rounded-t-sm"
+                />
               </span>
             ) : (
-              ''
+              ""
             )}
           </a>
           <div className="p-5 text-xs bg-gray-50">
             <h2 className=" ">
-              <a href={productLink} className="text-third-500 text-sm font-semibold hover:text-third-400">
-                {product.name}
+              <a
+                href={productLink}
+                className="text-third-500 text-sm font-semibold hover:text-third-400"
+              >
+                {lang !== "en" ? product.name_my : product.name}
               </a>
               <br />
               <span className=" text-gray-500">{product.category}</span>

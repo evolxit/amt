@@ -1,19 +1,22 @@
 ---
-import Product from '~/components/functional/Product';
-import ProductDetails from '~/components/functional/ProductDetails';
-import Breadcrumb from '~/components/widgets/Breadcrumb.astro';
-import Layout from '~/layouts/PageLayout.astro';
+import Product from "~/components/functional/Product";
+import ProductDetails from "~/components/functional/ProductDetails";
+import Breadcrumb from "~/components/widgets/Breadcrumb.astro";
+import { getLangFromUrl } from "~/i18n/utils";
+import Layout from "~/layouts/PageLayout.astro";
+
+const lang = getLangFromUrl(Astro.url);
 
 const metadata = {
-  title: 'Product Details',
+  title: "Product Details",
   items: [],
 };
-const defaultImg = '/p1.jpg';
+const defaultImg = "/p1.jpg";
 const testData = [
-  { name: 'Product 2', sku: 'TA603', cover: defaultImg, isNew: false },
-  { name: 'Product 3', sku: 'TA603', cover: defaultImg, isNew: true },
-  { name: 'Product 4', sku: 'TA603', cover: defaultImg, isNew: false },
-  { name: 'Product 6', sku: 'TA603', cover: defaultImg, isNew: true },
+  { name: "Product 2", sku: "TA603", cover: defaultImg, isNew: false },
+  { name: "Product 3", sku: "TA603", cover: defaultImg, isNew: true },
+  { name: "Product 4", sku: "TA603", cover: defaultImg, isNew: false },
+  { name: "Product 6", sku: "TA603", cover: defaultImg, isNew: true },
 ];
 ---
 
@@ -28,25 +31,35 @@ const testData = [
       stroke="currentColor"
       class="size-4 inline"
     >
-      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
     </svg>
     <span class="text-gray-900">Product Details</span>
   </Breadcrumb>
 
   <!-- component -->
-  <div class="w-full py-10 px-8">
+  <div class="px-8 lg:px-16">
     <div>
-      <ProductDetails client:only="react" />
+      <ProductDetails lang={lang} client:only="react" />
 
-      <div class="pt-10">
+      <div class="pt-10 hidden">
         <h1 class="font-bold text-xl my-3">
           Related Products
-          <span class="text-sm font-semibold float-right hover:text-third-500 cursor-pointer">Show More</span>
+          <span
+            class="text-sm font-semibold float-right hover:text-third-500 cursor-pointer"
+            >Show More</span
+          >
         </h1>
-        <div class="w-full mx-auto grid lg:grid-cols-4 grid-cols-2 gap-4 gap-y-10 place-items-center">
+        <div
+          class="w-full mx-auto grid lg:grid-cols-4 grid-cols-2 gap-4 gap-y-10 place-items-center"
+        >
           {
             testData.length > 0 ? (
-              testData.map((product) => <Product product={product} />)
+              testData.map((product) => (
+                <Product lang={lang} product={product} />
+              ))
             ) : (
               <div class="text-gray-400 text-sm">No Product!</div>
             )

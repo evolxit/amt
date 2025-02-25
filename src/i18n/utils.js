@@ -6,6 +6,12 @@ export function getLangFromUrl(url) {
   return defaultLang;
 }
 
+export function getLangFromPathname(path) {
+  const [, lang] = path.split("/");
+  if (lang in ui) return lang;
+  return defaultLang;
+}
+
 export function useTranslations(lang) {
   return function t(key) {
     return ui[lang][key] || ui[defaultLang][key];
