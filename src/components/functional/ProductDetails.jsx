@@ -27,6 +27,7 @@ const ProductDetails = ({ lang = "en" }) => {
 
   const getProduct = async (productId) => {
     const { list, related_list } = await ApiService.getProduct(productId);
+    // console.log("video: ", list.video);
     setProduct(list);
     setRelated(related_list);
     setMainImage(list.coverImage);
@@ -99,13 +100,13 @@ const ProductDetails = ({ lang = "en" }) => {
             <table className="w-full">
               <tbody>
                 {getVariantKeys(product.variants).map((variantName, index) => (
-                  <tr className="p-4" key={index}>
-                    <td>
+                  <tr className="" key={index}>
+                    <td className="align-top py-2 pr-2">
                       <strong className="capitalize text-sm">
                         {variantName}
                       </strong>
                     </td>
-                    <td>
+                    <td className="py-2">
                       {showVariantValues(
                         variantName,
                         product.variants[variantName]
