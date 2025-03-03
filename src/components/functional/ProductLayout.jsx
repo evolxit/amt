@@ -11,6 +11,7 @@ const ProductLayout = ({ lang = "en", categories, brands }) => {
   const category = searchParams.get("category") ?? "";
   const brand = searchParams.get("brand") ?? "";
   const query = searchParams.get("query") ?? "";
+  const page = searchParams.get("page") ?? 1;
 
   const setBrandDefault = () => {
     let defaultValue = {};
@@ -29,7 +30,7 @@ const ProductLayout = ({ lang = "en", categories, brands }) => {
   });
   const [selectedBrands, setSelectedBrands] = useState(setBrandDefault());
   const [result, setResult] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(page);
   const [totalPage, setTotalPage] = useState(1);
 
   const handleCategoryChange = async (value, name, type = "state") => {
@@ -111,13 +112,15 @@ const ProductLayout = ({ lang = "en", categories, brands }) => {
       });
     }
 
-    const { list } = await ApiService.getResult(
+    const { list, pagination } = await ApiService.getResult(
       category ?? "",
       brand ?? [],
       currentPage,
       query
     );
     setResult(list);
+    setCurrentPage(pagination.current_page);
+    setTotalPage(pagination.last_page);
   };
 
   const clearFilter = async () => {
