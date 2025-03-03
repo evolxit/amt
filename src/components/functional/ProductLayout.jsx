@@ -171,7 +171,13 @@ const ProductLayout = ({ lang = "en", categories, brands }) => {
             Clear All
           </span>
           <ShowResult lang={lang} data={result} />
-          <Pagination totalPage={totalPage} currentPage={currentPage} />
+          <Pagination
+            totalPage={totalPage}
+            currentPage={currentPage}
+            category={category}
+            brand={brand}
+            query={query}
+          />
         </div>
       </div>
     </>
