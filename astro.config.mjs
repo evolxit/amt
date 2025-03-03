@@ -18,6 +18,7 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+  trailingSlash: "never",
   integrations: [react(), tailwind(), icon()],
   output: "server",
   adapter: node({
