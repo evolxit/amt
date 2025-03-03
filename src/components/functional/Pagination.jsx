@@ -1,6 +1,6 @@
 import { getPermalink } from "~/utils/permalinks";
 
-const Pagination = ({ currentPage, totalPage }) => {
+const Pagination = ({ currentPage, totalPage, category, brand, query }) => {
   const pages = Array.from({ length: totalPage }, (v, k) => k + 1);
   return (
     <div className="p-5  w-full">
@@ -13,7 +13,17 @@ const Pagination = ({ currentPage, totalPage }) => {
           {pages.map((page, index) => (
             <li key={index}>
               <a
-                href={getPermalink("/products") + "?page=" + page}
+                href={
+                  getPermalink("/products") +
+                  "?category=" +
+                  category +
+                  "&brand=" +
+                  brand +
+                  "&query=" +
+                  query +
+                  "&page=" +
+                  page
+                }
                 className={`pagination-btn ${
                   currentPage == page ? "active" : ""
                 }`}
