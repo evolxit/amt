@@ -5,7 +5,7 @@ const SearchBox = () => {
   const [query, setQuery] = useState("");
   const handleSearch = () => {
     if (query !== "") {
-      window.location.href = `/products/?query=${query}`;
+      window.location.href = `/products?query=${query}`;
     }
   };
   return (
